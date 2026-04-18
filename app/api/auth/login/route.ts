@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server"
 import { z } from "zod"
+import { createClient } from "@/lib/supabase/server"
+import { formatAuthError } from "@/lib/supabase/auth-errors"
 
 const loginSchema = z.object({
   email: z.string().email(),
@@ -19,10 +21,18 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: parsed.error.flatten().fieldErrors }, { status: 400 })
   }
 
-  // TODO: Supabase Auth signInWithPassword
+  const supabase = await createClient()
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email: parsed.data.email,
+    password: parsed.data.password,
+  })
+
+  if (error) {
+    return NextResponse.json({ error: formatAuthError(error) }, { status: 401 })
+  }
+
   return NextResponse.json({
     ok: true,
-    mock: true,
-    message: "Login endpoint ready—connect Supabase (or your IdP) to issue sessions.",
+    user: { id: data.user.id, email: data.user.email },
   })
 }
