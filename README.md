@@ -1,99 +1,116 @@
-# ClearClaim
+# ClearClaim AI
 
-**SDG 3 · SDG 10** — Healthcare quality and access; reduced inequalities.
+**SDG 3 · SDG 10** — Healthcare access and quality; reduced inequalities.
 
-**One line:** AI that audits hospital bills, flags overcharges and billing-fraud patterns, estimates what you may legitimately owe, and helps you **negotiate**—dispute letters, follow-ups, and plain-language scripts—not just “here’s a PDF you don’t understand.”
+**What it is:** An AI platform that scans medical bills, detects overcharges, generates dispute documents, and connects patients to lawyers. Patient uploads a bill; the system surfaces fraud patterns and estimated overcharges; the patient recovers money where possible; ClearClaim earns subscription, success, and referral revenue.
 
----
-
-## Why this exists
-
-Medical billing in Pakistan and globally is often **opaque, asymmetric, and easy to exploit**. Hospitals use dense line items—facility fees, consumables, OT surcharges—while patients have **no reference point** and little leverage. In Pakistan’s private sector, public reporting has included cases of charges for care not delivered, drugs not given, or days not spent as an inpatient. People pay because they are scared, tired, and alone at the worst moment.
-
-ClearClaim is not “AI reads your bill.” It is a **negotiation intelligence layer**: structured audit, fraud-pattern classification, savings framing, and **actionable** outputs (dispute drafts, tracking, what to say if billing calls).
-
-> **Disclaimer.** ClearClaim provides analytical and educational assistance. It is **not** legal advice, medical advice, or a substitute for licensed professionals. Always verify charges with the hospital and your insurer or fund. Laws and fee schedules differ by country and facility.
+> **Disclaimer.** ClearClaim is **not a law firm** and does not provide legal or medical advice. It generates software-assisted documents and introductions to independent attorneys. Disclaimers must appear on every audit, letter, and marketplace touchpoint. Pricing, referral fees, and fee-splitting require **jurisdiction-specific legal and ethics review** (including bar rules and insurance regulations).
 
 ---
 
-## What makes it technically serious
+## How it works — step by step
 
-Hospital bills embed **medical billing codes** (e.g. ICD-10 for diagnoses, CPT-style procedure codes where used). ClearClaim is designed to:
+**Step 1 — User signs up**  
+Collect name, email, country, and payment method. **Country** drives payment provider, **published rate database**, **dispute letter template family**, **legal partner pool**, and **privacy / compliance mode**.
 
-| Pattern | What it means |
+**Step 2 — Upload bill**  
+Photo or PDF of the hospital bill plus **discharge summary** where available. Target: ~30 seconds.
+
+**Step 3 — AI audit**  
+**Claude Vision** reads the bill, extracts line items, cross-references **government-published standard rates** where the country dataset exists, flags overcharges, duplicates, phantom charges, and wrong procedure codes, and estimates total overcharge. Target: under **60 seconds**.
+
+**Step 4 — User sees report**  
+Dashboard: original total, estimated fair charge, red-highlighted line items, total estimated overcharge. Example framing: *“You were billed $38,000. Fair price is $11,200. Estimated overcharge: $26,800.”*
+
+**Step 5 — User picks an action**
+
+| Option | What happens |
 |--------|----------------|
-| **Upcoding** | A more complex (expensive) code than the service performed |
-| **Unbundling** | One procedure split into many billable lines that should bundle |
-| **Duplicate billing** | Same service or supply charged twice (wording or dates differ) |
-| **Phantom charges** | Drugs, days, equipment, or procedures not supported by the record |
-| **Excessive markup** | Charges far above reference or contracted rates where data exists |
+| **A — Dispute yourself** | App generates a formal dispute letter with case-specific data, CPT references, and standard-rate citations. Download PDF and send to the hospital. **Free tier:** report only, no letter. **Pro:** letter included. |
+| **B — We dispute for you** | ClearClaim’s **in-house paralegal** team runs the dispute. **Fee:** **15% of recovered amount** with **$149 minimum** (whichever is higher). Digital agreement before work starts. If the hospital pays nothing, user owes **no success fee beyond the minimum** per product rules—validate legally. |
+| **C — Get a lawyer** | **Legal marketplace:** ranked, vetted firms filtered by case type, location, and overcharge size. User selects a firm; ClearClaim sends the **full audit report** as intake automatically. |
 
-The product cross-references extracted codes and line items against **reference rate data** (where available), runs **fraud-pattern detection**, estimates a **defensible range** for legitimate totals, and generates **structured dispute narratives**—not vague “this seems high.”
-
----
-
-## Product surfaces (target)
-
-1. **Upload** — Photo or PDF; OCR → structured line items + codes  
-2. **Audit** — Single Claude (or equivalent) call over structured JSON + relevant rate context  
-3. **UI** — Red/green flags, fraud type, savings estimate, dispute strength  
-4. **Dispute kit** — Letter prose → **pdf-lib** PDF; optional email via **Resend / Nodemailer**  
-5. **Tracking** — Claim/dispute status, reminders (future)
+**Step 6 — Resolution tracking**  
+App tracks dispute status; user records outcome. ClearClaim applies **success fees**; **Stripe** charges per business rules.
 
 ---
 
-## Tech stack (planned / in progress)
+## Business rules (product spec)
 
-| Layer | Choice |
+1. **Free tier:** One bill scan per month; basic overcharge report only; **no** dispute letter; **no** legal marketplace. Acquisition funnel—show the pain, upsell to unlock tools.
+
+2. **Pro tier (~$9.99/mo):** Unlimited scans; full dispute letter; **medication appropriateness check** (informational); marketplace access. **Family plan ~$19.99/mo** for up to **6** members.
+
+3. **Option B success fee:** Mandatory **15% of recovered** with **$149 minimum**; user signs digitally before paralegal work. *Legal review required for “nothing recovered” scenarios and minimum fee enforceability.*
+
+4. **Attorney referral economics:** Listed firms agree to **$400 fixed per intake** (regardless of outcome) **plus 6% of contingency** on won cases—or they are not listed.
+
+5. **Marketplace ranking:** Win rate **35%**, average recovery **25%**, response time **20%**, user reviews **15%**, commission rate offered **5%**. Firms cannot buy rank; commission is a **small** factor.
+
+6. **Firm SLA:** Miss **three** consecutive **24-hour** referral response windows → **automatic delisting** (timestamped system rule).
+
+7. **Data retention:** Default **90-day** deletion of uploaded medical documents unless user **explicitly** opts into longer retention. Instant user-initiated delete. *Align with HIPAA (US) and local health-privacy law; “no exceptions” for extended retention without opt-in.*
+
+8. **Medication check:** Informational only; flags meds that appear inconsistent with diagnosis using **FDA-published** reference data (US-oriented); **mandatory** UI and ToS disclaimer—not medical advice.
+
+9. **Not a law firm:** Letters include footer: generated by AI, reviewed by user. Marketplace: ClearClaim does **not** represent the user and is **not** liable for attorney performance.
+
+10. **Country is the router:** Payment rails, rate DB, partner pool, letter templates, and compliance mode all key off **selected country**. If no rate DB exists: scan still runs with **pattern-only** analysis + clear disclaimer.
+
+11. **Hospital aggregation:** **≥10** users flagging the same hospital in **30** days → internal flag; offer **group action** path to class counsel. Referral: **$800** per group case **+ 8%** of attorney contingency—*subject to referral ethics rules.*
+
+12. **Success fee verification:** **MVP:** self-reported outcomes; **45-day** follow-up prompt; Stripe bills **15%** on reported recovery. **Scale:** integrate with attorney case-management systems for verified recovery data.
+
+---
+
+## Revenue streams
+
+| Stream | Notes |
 |--------|--------|
-| App | **Next.js** (App Router), API routes |
-| Audit / copy | **Claude API** (structured JSON audit + letter prose) |
-| OCR | **Tesseract.js** and/or **Google Cloud Vision** |
-| Data | **Supabase** (Postgres + **pgvector** for code/rate semantic match) |
-| PDF | **pdf-lib** |
-| Mail | **Resend** or **Nodemailer** |
-
-See **[Implementation.md](./Implementation.md)** for architecture, prompts, schema sketches, and build phases.
-
-See **[Implemented.md](./Implemented.md)** for what this repository actually contains today.
+| **Subscriptions** | $9.99 / $19.99 family — recurring base. |
+| **Success fees** | 15% recovered (Option B), minimum $149. |
+| **Attorney referrals** | $400 per intake + 6% contingency; group path $800 + 8%. |
+| **Document upsells** | Premium packs, HIPAA complaint drafts, commissioner filings — ~$29–$99 one-time. |
+| **Enterprise B2B (Phase 3)** | Hospitals / insurers — **$2k–5k/mo** compliance audit API (pre-patient-facing errors). |
 
 ---
 
-## Business model (directional)
+## Launch strategy
 
-- **B2C freemium:** Free audit preview; paid tier for full dispute pack + tracking (e.g. PKR 999 framing for markets where that lands).  
-- **Success fee (large bills):** Optional % of amounts successfully reduced or recovered—jurisdiction and regulations permitting.  
-- **B2B — insurers:** Fraud-detection API on inbound hospital invoices (e.g. Pakistan carriers and global analogues).  
-- **B2B — corporates:** Pre-pay audit for employee health benefits.
-
-Pricing and regulated activities must be validated locally (legal, financial services, medical claims).
-
----
-
-## The 3-minute demo (hackathon / pitch)
-
-1. Show a **realistic fabricated bill** (e.g. PKR 847,000 total)—admission, OT, meds, room, **intentional phantom/unbundle lines**.  
-2. **Upload** → OCR populates the table live.  
-3. **“ClearClaim found N problems.”** Flags appear with fraud types and amounts.  
-4. **Totals:** “Legitimate estimate ~PKR 531,000; delta ~PKR 316,000 (~37%).”  
-5. **Generate dispute letter** → PDF in seconds, cited line items, structured tone.  
-6. Contrast: lawyer cost and weeks vs. seconds—**emotional + economic** punch.
-
-Without a **convincing demo bill**, the story collapses. Build the PDF first.
+| Phase | Focus |
+|-------|--------|
+| **Months 1–3** | **US only** — seed marketplace with ~30 med-mal / billing firms across five states; free listings 90 days; acquire via Reddit (e.g. healthcare, personalfinance, insurance threads). |
+| **Months 4–6** | **India** — ombudsman / consumer-court letter variants; **Razorpay**. |
+| **Months 7–12** | **UAE, UK** — expat insurance confusion; UK private pay growth. |
+| **Year 2** | Additional countries as rate data and counsel networks allow. |
 
 ---
 
-## Team split (example for a 3-hour push)
+## What you tell judges in 3 minutes
 
-| Owner | Focus |
-|--------|--------|
-| You | Claude audit prompt + JSON schema; fraud-type rules in prompt |
-| Person 2 | Next.js upload UI, OCR pipeline, flagged line-item table |
-| Person 3 | CPT/ICD (or local code) **seed dataset** in Supabase (~500 common rows to start) |
-| Person 4 | Dispute letter generator (Claude → pdf-lib) |
-| Person 5 | Pitch deck + **demo bill PDF** |
+> “Hundreds of billions a year are lost to medical billing errors and fraud. The average bill has material errors. People don’t fight because they don’t understand the paper and can’t afford counsel.
+>
+> **ClearClaim AI** reads your bill in about a minute, shows what you were overcharged, generates a dispute letter, and if you’re ignored, connects you to a vetted contingency attorney.
+>
+> We monetize three ways: **subscription**, **15% of what we help recover**, and **attorney referral fees**.
+>
+> The problem is massive and under-served. **Then open the demo.**”
 
-**Pre-hackathon (~45 min):** One polished fake hospital bill PDF as the centerpiece.
+*(Replace “935 billion” / “trillion” claims in pitch with **cited** statistics before competition submissions.)*
+
+---
+
+## Demo (product)
+
+1. Fabricated bill (e.g. large total, phantom lines, unbundling).  
+2. Upload → Vision + table.  
+3. Flags + fraud types + savings headline.  
+4. Generate dispute PDF in seconds.  
+5. Optional: marketplace wireframe.
+
+See **[Implementation.md](./Implementation.md)** for architecture, data model, APIs, audit prompts, and compliance-oriented build order.
+
+See **[Implemented.md](./Implemented.md)** for what this repository contains **today** (mostly marketing shell; core product not yet wired).
 
 ---
 
@@ -107,8 +124,7 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000).
 
 ```bash
-npm run build
-npm run start
+npm run build && npm start
 ```
 
 ---
@@ -117,11 +133,11 @@ npm run start
 
 | File | Purpose |
 |------|---------|
-| [Implementation.md](./Implementation.md) | System design, data model, APIs, audit prompt, security |
-| [Implemented.md](./Implemented.md) | Honest checklist: shipped vs. planned in *this* repo |
+| [Implementation.md](./Implementation.md) | Systems design aligned with this business plan |
+| [Implemented.md](./Implemented.md) | Shipped vs. planned in *this* repo |
 
 ---
 
-## License / origin
+## Origin
 
-This repo began as a Next.js marketing scaffold. Product direction, naming, and specs are evolving toward **ClearClaim** as described above. Sync deployment badges and remote URLs with your actual Vercel project when you fork or rebrand.
+Repository started as a Next.js / v0 scaffold. Product and docs center on **ClearClaim AI** as specified above.

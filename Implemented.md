@@ -1,69 +1,77 @@
-# ClearClaim — What is implemented in this repository
+# ClearClaim AI — Implemented vs. planned
 
-This file is an **honest inventory**: what exists in the codebase **today** versus what [Implementation.md](./Implementation.md) describes. Update it whenever you ship a meaningful slice.
+**Last reviewed:** 2026-04-18 (manual). Update after each shipped slice.
 
-**Last reviewed:** 2026-04-18 (manual).
-
----
-
-## Implemented (in this repo)
-
-### Application shell
-
-- **Next.js** App Router project (`app/`, `npm run dev` / `build` / `start`).
-- **Marketing / landing UX**: hero, sections, FAQ, testimonials, integrations copy, feature cards—**positioned** around medical billing clarity, OCR, dispute prep, and Pakistan/global opacity themes (earlier iteration used “Vyro” naming in some metadata).
-- **Shared UI**: Tailwind, Radix-based components, layout, navbar, footer, floating schedule CTA, newsletter form (`/api/newsletter` if configured).
-
-### Content and positioning
-
-- README + this file + **Implementation.md** describe **ClearClaim** product intent, SDG framing, business model, and demo script.
-- Structured data / SEO metadata updated toward medical bill auditing narrative (verify URLs and brand strings match production).
-
-### Documentation
-
-- **[README.md](./README.md)** — product story, demo, team split, disclaimers.
-- **[Implementation.md](./Implementation.md)** — technical blueprint (schemas, prompts, Supabase sketch, APIs).
+This file tracks the **[README.md](./README.md)** business plan and **[Implementation.md](./Implementation.md)** technical plan against **this repository**.
 
 ---
 
-## Not implemented yet (gaps vs. blueprint)
+## Implemented (today)
 
-These are **not** present as working features in this repo unless you add them:
-
-| Area | Status |
-|------|--------|
-| **Claude (or other LLM) audit API** | Not wired; no `ANTHROPIC_API_KEY` flow in app. |
-| **Structured audit JSON + Zod validation** | Spec only in Implementation.md. |
-| **OCR** (Tesseract.js / Google Vision) | No upload pipeline or `/api/ocr`. |
-| **Bill parser** (`BillDocument`) | No canonical parser or types in `lib/`. |
-| **Supabase** (Postgres, auth, Storage, pgvector) | No client; no migrations. |
-| **`rate_reference` seed data** | Not in repo. |
-| **Dispute letter PDF** (`pdf-lib`) | Not implemented. |
-| **Resend / Nodemailer** to hospitals | Not implemented; newsletter may be separate. |
-| **Authenticated user bill history** | No Supabase auth integration. |
-| **End-to-end demo flow** | No single “upload → audit → PDF” path in UI. |
+- **Next.js** App Router app (`npm run dev` / `build` / `start`).
+- **Marketing site** with medical billing / audit narrative (hero, FAQ, testimonials, features, integrations copy).
+- **Static SEO** / structured data oriented toward bill auditing (verify brand, domain, and claims for production).
+- **Newsletter** API route (if env configured) — not part of core ClearClaim flows.
+- **Documentation:** README (business plan), Implementation.md (systems plan), this file.
 
 ---
 
-## Suggested next commits (priority order)
+## Not implemented (gaps vs. business plan)
 
-1. **`lib/types/bill.ts`** — TypeScript types for `BillDocument` / `AuditResult`.  
-2. **`app/api/audit/route.ts`** — Mock JSON first; then Claude + Zod.  
-3. **Demo page** — Upload or paste JSON; render flagged table + savings header.  
-4. **Supabase project** — Apply schema from Implementation.md; seed CSV for rates.  
-5. **OCR route** — File in → text out; then parser.  
-6. **`/api/dispute-letter` + PDF** — Download button.
+### Core product
 
-After each item, update the **Implemented** section above and tick the row in the gaps table.
+| Capability | Status |
+|------------|--------|
+| Sign-up with **country** + payment method routing | Not built |
+| **Stripe** subscriptions (Pro / Family) + usage limits | Not built |
+| Bill + **discharge summary** upload | Not built |
+| **Claude Vision** (or other) structured ingest | Not built |
+| **Government rate** DB + country fallback (pattern-only) | Not built |
+| **Audit API** + Zod-validated `AuditResult` | Not built |
+| Report dashboard (original vs fair vs overcharge) | Not built |
+| **Option A** dispute letter + PDF + tier gating | Not built |
+| **Option B** paralegal workflow + agreements + queue | Not built |
+| **Option C** legal marketplace + ranking + **$400** intake + **6%** | Not built |
+| Firm **24h SLA** + auto-delisting | Not built |
+| Resolution tracking + **45-day** follow-up | Not built |
+| **15% / $149 min** success fee automation | Not built |
+| **Hospital aggregation** (10 in 30 days) + group path | Not built |
+| **Medication check** (FDA) + mandatory disclaimers | Not built |
+| **90-day** retention cron + long-storage opt-in | Not built |
+| Razorpay / non-US payment phase | Not built |
+| Enterprise B2B audit API (Phase 3) | Not built |
+
+### Infrastructure
+
+| Capability | Status |
+|------------|--------|
+| Supabase auth + tables per Implementation.md | Not in repo |
+| pgvector rate matching | Not in repo |
+| Country config service | Not in repo |
 
 ---
 
-## Naming and branding
+## Suggested next commits (aligned with README)
 
-The codebase may still contain **legacy assets** (e.g. logos, old paths, v0 sync notes). Treat **ClearClaim** as the product name in docs; align `package.json` name, metadata, and assets when you finalize brand and domain.
+1. `lib/types/` — `BillDocument`, `AuditResult`, `CountryConfig`, `SubscriptionTier`.  
+2. `app/api/audit` — mock JSON → Claude + Zod.  
+3. `app/(app)/dashboard` — report UI from mock audit.  
+4. Supabase migrations from **Implementation.md §7**.  
+5. Stripe products + webhook + `usage_counters` for **1 free scan / month**.  
+6. `app/api/dispute-letter` + pdf-lib + **Pro gate**.  
+7. Marketplace read model + `referrals` insert (no payments yet).
 
 ---
 
-## Disclaimer (repeat)
+## Compliance reminders (for implementers)
 
-In-product and in docs: ClearClaim assists with **analysis and preparation** for disputes. It does not provide legal or medical advice. Outcomes depend on providers, insurers, and local law.
+- **Rule 9:** Not a law firm — footers and marketplace copy in **every** flow.  
+- **Rule 8:** Medication flags — informational only; no liability claims.  
+- **Rule 7:** Retention and deletion — implement before public PHI.  
+- **Rules 4, 11:** Referral economics — **legal ethics review** before any real money moves.
+
+---
+
+## Disclaimer
+
+ClearClaim assists with **analysis and document preparation** and **referrals** to independent professionals. It does not provide legal or medical advice. Judges and investors should see **sourced** statistics, not uncited global fraud totals.
