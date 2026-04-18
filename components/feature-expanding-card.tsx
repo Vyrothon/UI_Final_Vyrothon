@@ -32,7 +32,7 @@ export default function FeatureExpandingCard({
     >
       <Card
         className={cn(
-          "h-full bg-white dark:bg-gray-950 border border-gray-100 dark:border-gray-800 transition-all duration-300 overflow-hidden cursor-pointer",
+          "h-full bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-800 transition-all duration-300 overflow-hidden cursor-pointer",
           isExpanded ? "shadow-md" : "hover:shadow-sm hover:-translate-y-1",
         )}
         onClick={() => setIsExpanded(!isExpanded)}

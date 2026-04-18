@@ -148,9 +148,9 @@ export default function SavingsPage() {
                     className="absolute w-full h-full p-6 bg-white border border-gray-200 shadow-none rounded-lg flex flex-col justify-center"
                     style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
                   >
-                    <h3 className="font-semibold text-lg mb-3">CRM updates</h3>
+                    <h3 className="font-semibold text-lg mb-3">Case timeline updates</h3>
                     <p className="text-sm text-muted-foreground">
-                      Automatic logging and timeline updates eliminate manual CRM data entry.
+                      Automatic logging replaces spreadsheets when disputes move stages.
                     </p>
                   </Card>
                 </div>
@@ -181,7 +181,7 @@ export default function SavingsPage() {
                   >
                     <h3 className="font-semibold text-lg mb-3">Document review</h3>
                     <p className="text-sm text-muted-foreground">
-                      AI extracts structured data from insurance documents, eliminating manual review time.
+                      AI extracts structured data from bills and EOBs, cutting manual review time.
                     </p>
                   </Card>
                 </div>

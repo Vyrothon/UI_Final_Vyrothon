@@ -20,7 +20,7 @@ export default function IntegrationsGridSimple() {
         />
       </div>
       {/* The original section content, now moved below the image */}
-      <div className="container px-4 md:px-6 max-w-[960px] bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mt-8">
+      <div className="container px-4 md:px-6 max-w-[960px] bg-white rounded-2xl p-6 shadow-sm border border-gray-200 mt-8">
         {" "}
         {/* Added mt-8 for spacing */}
         <SectionTransition className="text-center max-w-3xl mx-auto mb-8">

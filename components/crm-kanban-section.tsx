@@ -121,7 +121,7 @@ export default function CrmKanbanSection() {
             Manage prospects with ease
           </h2>
           <p className="text-lg text-muted-foreground mb-6">
-            Lindy knows all about your prospects and clients with just a 5-minute setup. Drag and drop to move prospects
+            ClearClaim tracks every dispute stage with a five-minute setup. Drag cards to move cases
             through your sales pipeline.
           </p>
         </div>
@@ -331,7 +331,7 @@ export default function CrmKanbanSection() {
           </div>
 
           <div className="mt-6 text-center text-sm text-gray-500">
-            Drag prospect cards to move them between stages. Lindy automatically updates contact records and can send
+            Drag case cards between stages. ClearClaim updates timelines and can trigger
             follow-up emails.
           </div>
         </div>

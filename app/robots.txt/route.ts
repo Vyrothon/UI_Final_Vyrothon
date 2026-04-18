@@ -1,9 +1,9 @@
+import { SITE_URL } from "@/lib/site-config"
+
 // This route handler generates the robots.txt file on demand.
 
 export async function GET() {
-  // Hardcoding the base URL to ensure reliability.
-  // IMPORTANT: If your domain changes, this value must be updated here.
-  const baseUrl = "https://www.mylindy.com"
+  const baseUrl = SITE_URL.replace(/\/$/, "")
 
   const robotsTxt = `User-agent: *
 Allow: /

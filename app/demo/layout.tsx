@@ -2,9 +2,9 @@ import type React from "react"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Demo AI Solutions | My Lindy AI",
+  title: "Demo | ClearClaim AI",
   description:
-    "Experience our AI agents in action. Book a demo to see how My Lindy AI can transform your business with custom AI solutions.",
+    "See ClearClaim audit a hospital bill, flag overcharges, and export a dispute pack in minutes.",
 }
 
 export default function DemoLayout({

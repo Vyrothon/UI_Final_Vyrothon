@@ -2,9 +2,9 @@ import type React from "react"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Owen AI Agent | Lindy AI",
+  title: "Portal assist | ClearClaim AI",
   description:
-    "Meet Owen, your AI-powered teammate for visual web automation. Owen understands buttons, forms, and visual content to automate your daily tasks.",
+    "Optional guided capture from hospital and insurer portals so PDFs land in ClearClaim without manual hunting.",
 }
 
 export default function OwenLayout({

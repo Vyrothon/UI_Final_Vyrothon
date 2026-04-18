@@ -116,7 +116,7 @@ export default function ScheduleCallModal() {
             Schedule a Call with Our Team
           </DialogTitle>
           <DialogDescription>
-            Book a 30-minute consultation to discuss how Lindy can transform your business operations.
+            Book a 30-minute consultation to see how ClearClaim can help with billing audits and disputes.
           </DialogDescription>
         </DialogHeader>
 
@@ -283,7 +283,7 @@ export default function ScheduleCallModal() {
                   <MessageSquare className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                   <Textarea
                     id="message"
-                    placeholder="Tell us about your business needs, current challenges, or specific questions about Lindy..."
+                    placeholder="Tell us about your bill, country, or questions about ClearClaim..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="pl-10 min-h-[100px] focus:outline-none focus:ring-0"

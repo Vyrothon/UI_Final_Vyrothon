@@ -89,7 +89,7 @@ export default function ContactForm() {
     <Card className="bg-white border-none shadow-none">
       <CardHeader className="pb-2">
         <CardTitle className="text-xl font-semibold">Get in Touch</CardTitle>
-        <p className="text-muted-foreground text-sm">Tell us how Lindy can help your business.</p>
+        <p className="text-muted-foreground text-sm">Tell us about your hospital bill or enterprise audit needs.</p>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-3">

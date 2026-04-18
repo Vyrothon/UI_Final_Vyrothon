@@ -25,7 +25,7 @@ export default function SwitchboardShowcase() {
             transition={{ duration: 0.5 }}
           >
             <div className="inline-flex items-center rounded-full border border-gray-200 px-4 py-1.5 text-sm font-medium bg-white backdrop-blur-sm mb-2">
-              <span className="text-primary">How Lindy Works</span>
+              <span className="text-primary">How ClearClaim Works</span>
             </div>
             <h2 className="text-3xl font-bold tracking-normal sm:text-4xl md:text-5xl mb-4">
               The AI Switchboard Operator
@@ -48,7 +48,7 @@ export default function SwitchboardShowcase() {
               <div className="max-w-2xl text-center">
                 <p className="text-muted-foreground mb-8">
                   In the early days of telephone communication, switchboard operators manually connected callers by
-                  plugging patch cords into the appropriate jacks. Similarly, Lindy acts as your AI switchboard
+                  plugging patch cords into the appropriate jacks. Similarly, ClearClaim acts as your AI switchboard
                   operator, intelligently routing your requests to the most appropriate AI models and tools based on the
                   task at hand.
                 </p>
@@ -73,7 +73,7 @@ export default function SwitchboardShowcase() {
           <Card className="p-6">
             <h3 className="text-lg font-medium mb-2">Intelligent Routing</h3>
             <p className="text-sm text-muted-foreground">
-              Lindy analyzes your request and automatically selects the best AI model for the specific task, ensuring
+              ClearClaim analyzes your request and automatically selects the best AI model for the specific task, ensuring
               optimal results.
             </p>
           </Card>

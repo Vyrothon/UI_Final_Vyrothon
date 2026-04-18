@@ -28,18 +28,18 @@ export default function PrivacyPolicyTemplate({
       <p>Last Updated: {lastUpdated}</p>
 
       <p>
-        At {companyName}, the company behind Lindy AI, we take your privacy seriously. This Privacy Policy explains how
-        we collect, use, disclose, and safeguard your information when you visit our website {websiteUrl} and use our AI
-        assistant services. Please read this privacy policy carefully. If you do not agree with the terms of this
-        privacy policy, please do not access our website or use our services.
+        At {companyName}, the team behind ClearClaim AI, we take your privacy seriously. This Privacy Policy explains how
+        we collect, use, disclose, and safeguard your information when you visit our website {websiteUrl} and use our
+        medical billing audit and dispute services. Please read this privacy policy carefully. If you do not agree with
+        the terms of this privacy policy, please do not access our website or use our services.
       </p>
 
       <h2>About Our Service</h2>
       <p>
-        Lindy is an intelligent AI assistant platform that helps businesses automate workflows, manage customer
-        relationships, process documents, and integrate with various business tools. Our service includes AI-powered
-        features such as document parsing, form generation, email management, calendar scheduling, and integrations with
-        popular business applications.
+        ClearClaim is an AI-assisted platform for scanning hospital bills and insurance documents, detecting potential
+        overcharges or billing errors, generating dispute materials, and connecting users with independent legal
+        professionals. Processing may include OCR, structured extraction, fraud-pattern analysis, and integrations with
+        email, storage, and payment providers.
       </p>
 
       <h2>Information We Collect</h2>

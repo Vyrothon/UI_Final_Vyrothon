@@ -11,6 +11,7 @@ import { ThemeToggle } from "@/components/theme-toggle"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import ContactModal from "@/components/contact-modal"
 import { motion, AnimatePresence } from "framer-motion"
+import { SITE_NAME, getAppLoginUrl, getAppSignupUrl } from "@/lib/site-config"
 
 export default function MainNavbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -57,17 +58,18 @@ export default function MainNavbar() {
     { label: "Pricing", href: "/pricing", hasDropdown: false },
     { label: "Integrations", href: "/integrations/overview", hasDropdown: false },
     {
-      label: "Includes",
+      label: "Product",
       href: "#",
       hasDropdown: true,
       dropdownItems: [
-        { label: "Forms", href: "/forms" },
-        { label: "Tasks", href: "/tasks" },
-        { label: "Poe", href: "/poe" },
+        { label: "Bill intake", href: "/forms" },
+        { label: "Dispute tracker", href: "/tasks" },
+        { label: "Letters & docs", href: "/poe" },
+        { label: "Portal assist", href: "/owen" },
         { label: "Savings", href: "/savings" },
       ],
     },
-    { label: "Custom", href: "/custom", hasDropdown: false },
+    { label: "Enterprise", href: "/custom", hasDropdown: false },
     { label: "Demo", href: "/demo", hasDropdown: false },
   ]
 
@@ -152,7 +154,7 @@ export default function MainNavbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-all duration-300 ease-in-out border-b border-gray-100 dark:border-gray-800 ${
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ease-in-out border-b border-gray-200 dark:border-gray-800 ${
         scrolled
           ? "bg-white/90 dark:bg-neutral-900/90 backdrop-blur-lg shadow-sm border-gray-200 dark:border-gray-700 h-14"
           : "bg-white dark:bg-gray-950 h-16"
@@ -167,7 +169,7 @@ export default function MainNavbar() {
           <Link
             href="/"
             className="flex items-center space-x-2 group transition-all duration-300 ease-out hover:opacity-90 focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0 pt-1"
-            aria-label="Vyro home"
+            aria-label={`${SITE_NAME} home`}
           >
             <motion.div
               initial="hidden"
@@ -175,12 +177,12 @@ export default function MainNavbar() {
               variants={containerVariants}
               className="relative"
             >
-              <motion.div variants={logoVariants} className="relative scale-75 md:scale-90">
-                <img
-                  src="/lindy-button-logo.png"
-                  alt="Vyro"
-                  className={`transition-all duration-300 ease-out ${scrolled ? "h-9" : "h-10"}`}
-                />
+              <motion.div variants={logoVariants} className="relative">
+                <span
+                  className={`font-semibold tracking-tight text-foreground transition-all duration-300 ${scrolled ? "text-lg" : "text-xl"}`}
+                >
+                  {SITE_NAME}
+                </span>
               </motion.div>
             </motion.div>
           </Link>
@@ -249,9 +251,7 @@ export default function MainNavbar() {
               size="sm"
               className="text-sm font-medium focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0 border border-gray-200 hover:border-gray-300"
             >
-              <Link href="https://app.mylindy.com" target="_blank" rel="noopener noreferrer">
-                Login
-              </Link>
+              <Link href={getAppLoginUrl()}>Login</Link>
             </Button>
 
             <ThemeToggle />
@@ -261,9 +261,7 @@ export default function MainNavbar() {
               size="sm"
               className="text-sm font-medium bg-primary hover:bg-primary/90 text-primary-foreground focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
             >
-              <Link href="https://app.mylindy.com/auth" target="_blank" rel="noopener noreferrer">
-                Sign up
-              </Link>
+              <Link href={getAppSignupUrl()}>Sign up</Link>
             </Button>
           </div>
 
@@ -320,8 +318,8 @@ export default function MainNavbar() {
                       {(() => {
                         let motionIndex = 0
                         return mainNavItems.flatMap((item) => {
-                          if (item.hasDropdown && item.label === "Includes") {
-                            // Target "Includes" specifically
+                          if (item.hasDropdown && item.label === "Product") {
+                            // Product submenu
                             const includesHeader = (
                               <motion.div
                                 key={`${item.label}-header`}
@@ -454,12 +452,7 @@ export default function MainNavbar() {
                             variant="outline"
                             className="mx-4 w-[calc(100%-2rem)] focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
                           >
-                            <Link
-                              href="https://app.mylindy.com"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              onClick={() => setIsOpen(false)}
-                            >
+                            <Link href={getAppLoginUrl()} onClick={() => setIsOpen(false)}>
                               Login
                             </Link>
                           </Button>
@@ -476,12 +469,7 @@ export default function MainNavbar() {
                             asChild
                             className="mx-4 w-[calc(100%-2rem)] bg-primary hover:bg-primary/90 text-primary-foreground focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
                           >
-                            <Link
-                              href="https://app.mylindy.com/auth"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              onClick={() => setIsOpen(false)}
-                            >
+                            <Link href={getAppSignupUrl()} onClick={() => setIsOpen(false)}>
                               Sign up
                             </Link>
                           </Button>

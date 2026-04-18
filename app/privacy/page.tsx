@@ -5,10 +5,11 @@ import { ArrowLeft } from "lucide-react"
 import PrivacyPolicyTemplate from "@/components/privacy-policy-template"
 import MainNavbar from "@/components/main-navbar"
 import Footer from "@/components/footer"
+import { SITE_NAME_FULL, SITE_URL } from "@/lib/site-config"
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | My Lindy MCP AI Assistant",
-  description: "Our commitment to protecting your privacy and securing your data.",
+  title: `Privacy Policy | ${SITE_NAME_FULL}`,
+  description: "How ClearClaim handles health-adjacent documents, billing data, and your rights.",
 }
 
 export default function PrivacyPolicy() {
@@ -37,7 +38,7 @@ export default function PrivacyPolicy() {
 
             <PrivacyPolicyTemplate
               companyName="Strawberry Antler, Inc."
-              websiteUrl="https://mylindy.com"
+              websiteUrl={SITE_URL}
               contactEmail="support@strawberryantler.com"
               contactAddress=""
               lastUpdated={currentDate}
@@ -46,8 +47,11 @@ export default function PrivacyPolicy() {
               includeCookies={true}
               includeAnalytics={true}
               includeThirdPartyServices={[
-                "AI Model Providers (OpenAI, Anthropic, Grok)",
-                "Integration Partners (Zapier, Twilio, OpenPhone)",
+                "AI inference (e.g. Groq, Anthropic)",
+                "OCR and document services",
+                "Search and grounding APIs (e.g. SerpAPI)",
+                "Supabase (database, auth, storage)",
+                "Payments (e.g. Stripe) and email (e.g. Resend)",
                 "Cloud Infrastructure (AWS, Microsoft Azure)",
                 "Analytics Services",
               ]}

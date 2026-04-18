@@ -36,7 +36,7 @@ export default function InteractiveSwitchboardDemo() {
             transition={{ duration: 0.5 }}
           >
             <div className="inline-flex items-center rounded-full border border-gray-200 px-4 py-1.5 text-sm font-medium bg-white backdrop-blur-sm mb-2">
-              <span className="text-primary">How Lindy Works</span>
+              <span className="text-primary">How ClearClaim Works</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-4">
               The AI Switchboard
@@ -69,7 +69,7 @@ export default function InteractiveSwitchboardDemo() {
                   <DialogHeader>
                     <DialogTitle>Understanding the AI Switchboard</DialogTitle>
                     <DialogDescription>
-                      Just like telephone switchboard operators connected callers to recipients, Lindy connects your
+                      Just like telephone switchboard operators connected callers to recipients, ClearClaim connects your
                       requests to the most appropriate AI models.
                     </DialogDescription>
                   </DialogHeader>
@@ -105,7 +105,7 @@ export default function InteractiveSwitchboardDemo() {
                       <div>
                         <h4 className="text-sm font-medium">Watch the Connection</h4>
                         <p className="text-sm text-muted-foreground">
-                          A connection line will appear, showing how Lindy routes your request to the appropriate AI
+                          A connection line will appear, showing how ClearClaim routes your request to the appropriate AI
                           model.
                         </p>
                       </div>
@@ -153,7 +153,7 @@ export default function InteractiveSwitchboardDemo() {
                   <div className="max-w-2xl text-center">
                     <p className="text-muted-foreground mb-8">
                       In the early days of telephone communication, switchboard operators manually connected callers by
-                      plugging patch cords into the appropriate jacks. Similarly, Lindy acts as your AI switchboard
+                      plugging patch cords into the appropriate jacks. Similarly, ClearClaim acts as your AI switchboard
                       operator, intelligently routing your requests to the most appropriate AI models and tools based on
                       the task at hand.
                     </p>
@@ -182,7 +182,7 @@ export default function InteractiveSwitchboardDemo() {
               <h3 className="text-lg font-medium">Intelligent Routing</h3>
             </div>
             <p className="text-sm text-muted-foreground">
-              Lindy analyzes your request and automatically selects the best AI model for the specific task, ensuring
+              ClearClaim analyzes your request and automatically selects the best AI model for the specific task, ensuring
               optimal results.
             </p>
           </Card>

@@ -33,45 +33,45 @@ const integrationData: IntegrationCategory[] = [
     ],
   },
   {
-    title: "Insurance APIs",
+    title: "Payer & carrier feeds",
     integrations: [
-      { name: "Fenris", description: "Comprehensive insurance data and property details", logoFilename: "fenris.png" },
+      { name: "Fenris", description: "Eligibility and benefit snapshots for audit context", logoFilename: "fenris.png" },
       {
         name: "Progressive",
-        description: "Pre-populate insurance quote data & rate quotes API",
+        description: "Carrier remittance and EOB feeds (where contracted)",
         logoFilename: "progressive.svg",
         directUrl: "https://blobs.vusercontent.net/blob/Progressive%20%283%29-b9Dv8JuaYZ9aNpToZPYdMSa7zznqf5.svg",
       },
-      { name: "Edison AI", description: "Insurance underwriting and risk assessment", logoFilename: "edison.png" },
-      { name: "AgencyZoom", description: "Insurance agency management system", logoFilename: "agencyzoom.svg" },
-      { name: "HawkSoft", description: "Agency management and client tracking", logoFilename: "hawksoft.png" },
+      { name: "Edison AI", description: "Historical rate benchmarks for comparison", logoFilename: "edison.png" },
+      { name: "AgencyZoom", description: "TPA case exports into ClearClaim", logoFilename: "agencyzoom.svg" },
+      { name: "HawkSoft", description: "Brokerage-held patient billing records", logoFilename: "hawksoft.png" },
       {
         name: "Ezlynx",
-        description: "Insurance agency management and rating software.",
+        description: "Agency billing exports for reconciliation",
         logoFilename: "ezlynx.png",
         directUrl:
           "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/EZlogo-redblack_1-TALssNpkFgY3ceaqqUqEtTf9B2N5Me.png",
       },
       {
         name: "NowCerts",
-        description: "Agency Management System for insurance.",
+        description: "Agency management exports for dispute teams",
         logoFilename: "nowcerts-logo.png",
         directUrl:
           "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/momentumamp_logo%201-HHGOJv87AxVhnebjjase5oZFTrEGj9.png",
       },
       {
         name: "Ivans Download",
-        description: "Automated insurance policy data download from carriers.",
+        description: "Automated policy and claims document retrieval",
         logoFilename: "ivans.png", // Will use the newly added image from public/logos/integrations/
       },
     ],
   },
   {
-    title: "CRM & Sales",
+    title: "CRM & case management",
     integrations: [
       {
         name: "Salesforce",
-        description: "Customer relationship management and sales automation",
+        description: "Enterprise CRM sync for legal and patient advocates",
         logoFilename: "salesforce.svg",
         directUrl:
           "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Salesforce%20logo%20%281%29-gMKcHyV2ZuQVb3YdsOq7R7c124YjI4.svg",
@@ -132,7 +132,7 @@ const integrationData: IntegrationCategory[] = [
     integrations: [
       {
         name: "ACORD Me Not",
-        description: "Parse and structure ACORD insurance forms",
+        description: "Legacy form parsing for broker-sourced documents",
         logoFilename: "acord-me-not-antler.png",
       },
       {

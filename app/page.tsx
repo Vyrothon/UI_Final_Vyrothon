@@ -150,7 +150,7 @@ export default function Home() {
         {/* Hero Section with Futuristic Background */}
         <section
           id="hero"
-          className="relative min-h-[700px] md:min-h-screen flex flex-col items-center justify-center overflow-hidden bg-gray-25 border-b border-gray-100"
+          className="relative min-h-[700px] md:min-h-screen flex flex-col items-center justify-center overflow-hidden bg-gray-25 border-b border-gray-200"
           style={{
             background: `
 linear-gradient(to bottom, white 0%, rgba(249, 250, 251, 0.8) 20%, rgb(249, 250, 251) 80%, white 100%),
@@ -217,7 +217,7 @@ linear-gradient(-45deg, rgba(0,0,0,0.003) 25%, transparent 25%)
         {/* Gradient overlay section for smooth transition */}
         <section className="relative -mt-16 h-32 bg-gradient-to-b from-white/0 via-white/50 to-white pointer-events-none z-20"></section>
 
-        {/* My Lindy AI Agent Section */}
+        {/* Product story section */}
         <section className="py-24 bg-white">
           <div className="container px-4 md:px-6 max-w-[960px] mx-auto">
             <SectionTransition className="flex flex-col items-center justify-center mb-16">
@@ -230,7 +230,7 @@ linear-gradient(-45deg, rgba(0,0,0,0.003) 25%, transparent 25%)
             </SectionTransition>
 
             <div className="mt-8 md:mt-12 w-full max-w-[1200px] mx-auto">
-              <Card className="p-6 bg-white border border-gray-100 shadow-sm overflow-hidden">
+              <Card className="p-6 bg-white border border-gray-200 shadow-sm overflow-hidden">
                 <Image
                   src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Lindy%20ai%20agents%20for%20small%20businesses%2C%20sales%20and%20insurance-U0yP2S7ilkI4q6CyXwY4lZslO8kdHu.svg"
                   alt="Workflow: scan a medical bill, extract charges, review in real time"

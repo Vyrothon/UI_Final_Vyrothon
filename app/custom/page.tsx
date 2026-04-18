@@ -29,15 +29,15 @@ const faqData = [
     ),
   },
   {
-    question: "How central is customization to the My Lindy platform?",
+    question: "How central is customization to the ClearClaim platform?",
     answer: (
       <>
         <p className="mb-4">
-          Customization is at the very heart of the My Lindy platform. We believe that AI is most powerful when it's
+          Customization is at the very heart of the ClearClaim platform. We believe that AI is most powerful when it's
           perfectly aligned with your unique business processes, not the other way around.
         </p>
         <p>
-          Unlike one-size-fits-all solutions, My Lindy allows you to build and tailor AI agents that understand your
+          Unlike one-size-fits-all solutions, ClearClaim allows you to build and tailor AI agents that understand your
           specific workflows, integrate with your proprietary tools, and communicate in your brand's voice. This deep
           level of customization ensures that your agents aren't just performing tasks, but are operating as
           intelligent, integrated members of your team.
@@ -61,16 +61,16 @@ const faqData = [
     ),
   },
   {
-    question: "Can I add my own AI agents to the My Lindy platform?",
+    question: "Can I add my own AI agents to the ClearClaim platform?",
     answer: (
       <>
         <p className="mb-4">
-          The My Lindy platform is designed to be flexible. While we offer services to build custom agents for you, we
+          The ClearClaim platform is designed to be flexible. While we offer services to build custom agents for you, we
           also provide the tools and infrastructure for technically proficient users or development teams to connect and
           manage their own AI agents.
         </p>
         <p>
-          This allows you to leverage My Lindy's Unified Context Protocol (MCP), integration capabilities, and
+          This allows you to leverage ClearClaim's Unified Context Protocol (MCP), integration capabilities, and
           management features with agents you've developed independently.
         </p>
       </>
@@ -172,11 +172,11 @@ const faqData = [
     ),
   },
   {
-    question: "What is the Unified Context Protocol (MCP) on the My Lindy platform?",
+    question: "What is the Unified Context Protocol (MCP) on the ClearClaim platform?",
     answer: (
       <>
         <p className="mb-2">
-          My Lindy’s Model Context Protocol (MCP) is a core technology that enhances our Custom AI Agents. It provides
+          ClearClaim’s Model Context Protocol (MCP) is a core technology that enhances our Custom AI Agents. It provides
           them with:
         </p>
         <ul className="list-disc list-outside space-y-1 pl-5">
@@ -188,17 +188,17 @@ const faqData = [
           <li>The ability to reason and complete complex, multi-step tasks using real-time business information.</li>
         </ul>
         <p className="mt-2">
-          This makes agents on the My Lindy platform significantly more intelligent and situationally aware than
+          This makes agents on the ClearClaim platform significantly more intelligent and situationally aware than
           standard chatbots or isolated automation tools.
         </p>
       </>
     ),
   },
   {
-    question: "How do Custom Agents on My Lindy integrate with other business tools?",
+    question: "How do Custom Agents on ClearClaim integrate with other business tools?",
     answer: (
       <p>
-        Custom agents built on the My Lindy platform are designed for seamless integration. They can sync with popular
+        Custom agents built on the ClearClaim platform are designed for seamless integration. They can sync with popular
         tools like Google Calendar, Gmail, and OpenPhone, connect via third-party APIs, read from and write to your CRM,
         forms, and document systems, and respond to webhook triggers. This capability allows for the creation of
         powerful end-to-end automations across your entire business software stack.
@@ -206,11 +206,11 @@ const faqData = [
     ),
   },
   {
-    question: "Can multiple Custom Agents collaborate on the My Lindy platform?",
+    question: "Can multiple Custom Agents collaborate on the ClearClaim platform?",
     answer: (
       <>
         <p className="mb-2">
-          Yes, the My Lindy platform supports multi-agent collaboration. You can design agent networks where different
+          Yes, the ClearClaim platform supports multi-agent collaboration. You can design agent networks where different
           specialized agents work together to handle various parts of a complex workflow.
         </p>
         <p>
@@ -222,10 +222,10 @@ const faqData = [
     ),
   },
   {
-    question: "How does My Lindy support team collaboration and management of Custom Agents?",
+    question: "How does ClearClaim support team collaboration and management of Custom Agents?",
     answer: (
       <p>
-        The My Lindy platform offers robust features for team environments. Teams can share custom agents with specific
+        The ClearClaim platform offers robust features for team environments. Teams can share custom agents with specific
         role-based permissions, track the usage and performance of each agent through analytics, and easily clone or
         adapt existing agents for different team members or evolving use cases. This is particularly beneficial for
         scaling operations in areas like sales, customer support, compliance, and general operations.
@@ -300,7 +300,7 @@ export default function CustomPage() {
               <div className="flex justify-center">
                 <Image
                   src="/custom-ai-agents-mylindy.svg"
-                  alt="Custom AI Agents by MyLindy"
+                  alt="Enterprise ClearClaim deployment"
                   width={800}
                   height={500}
                   className="rounded-lg object-contain w-full max-w-2xl"

@@ -53,7 +53,7 @@ export default function IntegrationsGrid() {
         <SectionTransition className="text-center max-w-3xl mx-auto mb-12">
           <h3 className="text-2xl font-medium mb-4">Connect with 100+ apps and services</h3>
           <p className="text-muted-foreground">
-            Lindy integrates with all your favorite tools to create a seamless workflow
+            ClearClaim integrates with the tools that hold your bills—email, drives, and payer portals
           </p>
         </SectionTransition>
 

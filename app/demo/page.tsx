@@ -35,37 +35,37 @@ export default function DemoPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mt-16">
                 {[
                   {
-                    title: "CRM",
+                    title: "Audit workspace overview",
                     thumbnail: "/demo-thumbnails/ai-lindy-crm-updated.png",
                     videoUrl: "https://www.youtube.com/embed/ihUYrvytaEU?rel=0&modestbranding=1&showinfo=0",
                   },
                   {
-                    title: "ACORD",
+                    title: "Parsing EOBs & itemized bills",
                     thumbnail: "/demo-thumbnails/ai-lindy-acord.png",
                     videoUrl: "https://www.youtube.com/embed/iFgFb4KM5Vs?rel=0&modestbranding=1&showinfo=0",
                   },
                   {
-                    title: "POE",
+                    title: "Dispute letter generation",
                     thumbnail: "/demo-thumbnails/ai-lindy-poe.png",
                     videoUrl: "https://www.youtube.com/embed/9oNUZ3Hfvks?rel=0&modestbranding=1&showinfo=0",
                   },
                   {
-                    title: "Rater",
+                    title: "Rate cross-checks",
                     thumbnail: "/demo-thumbnails/ai-lindy-rater.png",
                     videoUrl: "https://www.youtube.com/embed/dZU1aS0ynLE?rel=0&modestbranding=1&showinfo=0",
                   },
                   {
-                    title: "Email and Calendar",
+                    title: "Notifications & handoffs",
                     thumbnail: "/demo-thumbnails/ai-lindy-email.png",
                     videoUrl: "https://www.youtube.com/embed/fjzkqm3rzC4?rel=0&modestbranding=1&showinfo=0",
                   },
                   {
-                    title: "Tasks",
+                    title: "Dispute tracker",
                     thumbnail: "/demo-thumbnails/ai-lindy-tasks.png",
                     videoUrl: "https://www.youtube.com/embed/hnj4Wq6WPkE?rel=0&modestbranding=1&showinfo=0",
                   },
                   {
-                    title: "Knowledge base",
+                    title: "Case history & counsel packet",
                     thumbnail: "/demo-thumbnails/ai-lindy-knowledge.png",
                     videoUrl: "https://www.youtube.com/embed/nTPnpBLch4I?rel=0&modestbranding=1&showinfo=0",
                   },

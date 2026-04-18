@@ -30,7 +30,7 @@ export default function CrmShowcaseSection() {
         />
 
         {/* Second card - The smartest section */}
-        <div className="bg-white rounded-2xl px-6 py-10 md:px-10 mt-8 shadow-sm border border-gray-100">
+        <div className="bg-white rounded-2xl px-6 py-10 md:px-10 mt-8 shadow-sm border border-gray-200">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
             <div>
               <h3 className="text-2xl font-semibold mb-4">One place for every statement</h3>
@@ -51,7 +51,7 @@ export default function CrmShowcaseSection() {
             </div>
 
             <div className="space-y-4">
-              <div className="bg-white p-6 rounded-lg border border-gray-100 shadow-sm">
+              <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
                 <div className="flex items-center mb-2">
                   <h4 className="text-xl font-semibold mb-4">Structured charges</h4>
                 </div>
@@ -61,7 +61,7 @@ export default function CrmShowcaseSection() {
                 </p>
               </div>
 
-              <div className="bg-white p-6 rounded-lg border border-gray-100 shadow-sm">
+              <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
                 <div className="flex items-center mb-2">
                   <h4 className="text-xl font-semibold mb-4">Real-time red flags</h4>
                 </div>
@@ -71,7 +71,7 @@ export default function CrmShowcaseSection() {
                 </p>
               </div>
 
-              <div className="bg-white p-6 rounded-lg border border-gray-100 shadow-sm">
+              <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
                 <div className="flex items-center mb-2">
                   <h4 className="text-xl font-semibold mb-4">Next-step context</h4>
                 </div>

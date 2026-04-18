@@ -477,7 +477,7 @@ export default function InteractiveSwitchboard({ className = "" }: { className?:
               visible: { opacity: 1, transition: { delay: 6 } },
             }}
           >
-            Lindy: The AI Switchboard Operator
+            ClearClaim: routing your bill to the right model
           </motion.text>
 
           {/* Instructions */}

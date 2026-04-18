@@ -1,8 +1,8 @@
 import type React from "react"
 
 export const metadata = {
-  title: "Integrations | Lindy",
-  description: "Explore the wide range of tools and platforms Lindy integrates with to streamline your workflow.",
+  title: "Integrations | ClearClaim AI",
+  description: "Email, storage, OCR, payments, and partners that connect to ClearClaim’s billing audit stack.",
 }
 
 export default function IntegrationsOverviewLayout({

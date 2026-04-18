@@ -7,7 +7,7 @@ export default function UseCases() {
       icon: <BuildingIcon />,
       title: "Small Businesses",
       description:
-        "Lindy acts as your virtual assistant, handling scheduling, customer inquiries, and administrative tasks to help you focus on growth.",
+        "ClearClaim helps families decode inpatient bills, compare EOBs, and prepare disputes without a law degree.",
       benefit:
         "Save time and resources by automating routine tasks, improving customer response times, and maintaining organized business operations without hiring additional staff.",
       accentColor: "rgba(59, 130, 246, 0.5)",

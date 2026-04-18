@@ -2,9 +2,9 @@ import type React from "react"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Intelligent Forms | Lindy AI",
+  title: "Bill intake | ClearClaim AI",
   description:
-    "Streamline data collection and processing with Lindy's AI-powered online forms. Create, customize, and integrate forms seamlessly into your workflows.",
+    "Secure intake for hospital bills, EOBs, and discharge paperwork—structured for OCR and audit pipelines.",
 }
 
 export default function FormsLayout({

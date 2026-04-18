@@ -5,6 +5,7 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import Script from "next/script"
 import FloatingBookDemo from "@/components/floating-book-demo"
+import { SITE_NAME_FULL, SITE_URL } from "@/lib/site-config"
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -13,33 +14,33 @@ const outfit = Outfit({
 })
 
 export const metadata: Metadata = {
-  title: "Vyro | Medical bill OCR, real-time charge checks, and billing clarity",
+  title: `${SITE_NAME_FULL} | Hospital bill audits, disputes, and fair pricing clarity`,
   description:
-    "Upload or scan hospital bills and EOBs with OCR. Get structured line items, real-time overcharge-style checks, plain-language explanations, and dispute-ready notes—with consumer-protection context on the roadmap.",
+    "ClearClaim AI scans hospital bills and EOBs, flags overcharges and billing fraud patterns, estimates fair totals, generates dispute documents, and connects you to vetted counsel. Not medical or legal advice.",
   keywords:
-    "medical bill OCR, hospital bill review, medical billing help, EOB explanation, surprise billing, duplicate medical charges, patient billing rights, medical bill dispute, healthcare transparency, Vyro",
+    "ClearClaim, medical bill OCR, hospital bill audit, billing fraud, EOB review, dispute letter, medical overcharge, patient billing rights, healthcare transparency, Pakistan hospital bills, US medical billing",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://mylindy.com",
-    title: "Vyro — Understand your medical bill before you pay",
+    url: SITE_URL,
+    title: `${SITE_NAME_FULL} — Understand your hospital bill before you pay`,
     description:
-      "OCR for medical bills and insurance statements, real-time flags on suspicious or duplicate charges, and clear next steps for billing calls. Not medical or legal advice.",
-    siteName: "Vyro",
+      "AI-assisted billing audit: OCR, CPT/ICD cross-checks where data exists, dispute-ready letters, and lawyer marketplace. Educational tool—not a law firm.",
+    siteName: SITE_NAME_FULL,
     images: [
       {
         url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Lindy%20AI%20Open%20Graph%20image%20by%20Strawberry%20antler-mG8Z9bDi0O9HeOiOcFZH5zx56jFOKH.png",
         width: 1200,
         height: 630,
-        alt: "Vyro — AI-assisted medical bill review and billing clarity",
+        alt: "ClearClaim AI — hospital bill review and dispute support",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vyro | Medical bill OCR and real-time fairness checks",
+    title: `${SITE_NAME_FULL} | Medical billing audits & disputes`,
     description:
-      "Decode hospital bills and EOBs: OCR, charge checks, plain-language summaries, and help preparing billing questions. Educational only—not medical or legal advice.",
+      "Decode hospital bills fast: structured line items, fraud-pattern flags, savings estimates, dispute PDFs, and attorney intake. Not medical or legal advice.",
     images: [
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Lindy%20AI%20Open%20Graph%20image%20by%20Strawberry%20antler-mG8Z9bDi0O9HeOiOcFZH5zx56jFOKH.png",
     ],

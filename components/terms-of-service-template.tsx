@@ -13,8 +13,8 @@ interface TermsOfServiceTemplateProps {
 
 const TermsOfServiceTemplate: React.FC<TermsOfServiceTemplateProps> = ({
   companyName,
-  websiteName = "My Lindy AI Platform",
-  websiteUrl = "https://mylindy.com",
+  websiteName = "ClearClaim AI Platform",
+  websiteUrl = "https://clearclaim.ai",
   effectiveDate,
   lastUpdated,
   contactEmail,
@@ -37,10 +37,10 @@ const TermsOfServiceTemplate: React.FC<TermsOfServiceTemplateProps> = ({
 
       <h2>2. Description of Service</h2>
       <p>
-        {websiteName} provides an AI assistant platform that helps businesses automate workflows, manage customer
-        relationships, process documents, and integrate with various business tools. Our service includes AI-powered
-        features such as document parsing, form generation, email management, calendar scheduling, and integrations with
-        popular business applications.
+        {websiteName} provides tools to upload and analyze medical bills and related documents, surface potential
+        overcharges or billing issues, prepare dispute communications, and introduce users to independent attorneys.
+        Features may include OCR, structured extraction, rate comparisons where data is available, and workflow
+        integrations. {websiteName} is not a law firm and does not provide legal or medical advice.
       </p>
 
       <h2>3. User Accounts</h2>
@@ -86,16 +86,15 @@ const TermsOfServiceTemplate: React.FC<TermsOfServiceTemplateProps> = ({
       <h2>7. Intellectual Property</h2>
       <p>
         The Service and its original content, features, and functionality are owned by {companyName}
-        and are protected by copyright, trademark, and other intellectual property laws. The My Lindy name, logo, and
+        and are protected by copyright, trademark, and other intellectual property laws. The ClearClaim name, logo, and
         all related names, logos, product and service names, designs, and slogans are trademarks of {companyName} or its
         affiliates.
       </p>
 
       <h2>8. Third-Party Services</h2>
       <p>
-        Our AI assistant platform integrates with various third-party services to provide comprehensive business
-        automation. These include AI Model Providers (OpenAI, Anthropic, Grok), Integration Partners (Zapier, Twilio,
-        OpenPhone), Cloud Infrastructure (AWS, Microsoft Azure), and Analytics Services.
+        Our platform integrates with third-party services (AI inference such as Groq or Anthropic, OCR, search APIs,
+        email, payments, and cloud hosting). Each connector is optional and governed by that provider&apos;s terms.
       </p>
       <p>
         Each integration is governed by the respective third party's privacy policy and terms of service. We recommend

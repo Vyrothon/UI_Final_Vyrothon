@@ -2,9 +2,9 @@ import type React from "react"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Team Tasks & Collaboration | Lindy AI",
+  title: "Dispute tracker | ClearClaim AI",
   description:
-    "Manage team tasks, assignments, and collaboration seamlessly with Lindy AI. Track progress, filter by assignee, and ensure nothing gets missed.",
+    "Track billing disputes, deadlines, letters sent, and counsel referrals in one workspace.",
 }
 
 export default function TasksLayout({

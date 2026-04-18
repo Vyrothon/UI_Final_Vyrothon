@@ -9,7 +9,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 
 const faqData = [
   {
-    question: "How does My Lindy write with expert-level quality?",
+    question: "How does ClearClaim write with expert-level quality?",
     answer: (
       <>
         <p className="mb-2">
@@ -28,7 +28,7 @@ const faqData = [
         <p className="font-semibold mt-3 mb-1">Example:</p>
         <blockquote className="border-l-4 border-gray-300 dark:border-gray-600 pl-4 italic">
           “You can use an AI chatbot for client intake. But should you? Depends—on your data handling, your compliance
-          layer, and your risk appetite. My Lindy knows the difference.”
+          layer, and your risk appetite. ClearClaim knows the difference.”
         </blockquote>
       </>
     ),
@@ -94,7 +94,7 @@ const faqData = [
         <p className="font-semibold mt-3 mb-1">Example:</p>
         <blockquote className="border-l-4 border-gray-300 dark:border-gray-600 pl-4 italic">
           “An agent in Atlanta used AI to automate quote comparisons across five carriers. Saved three hours a day.
-          That's not a case study—it's what My Lindy explains with details you can copy.”
+          That's not a case study—it's what ClearClaim explains with details you can copy.”
         </blockquote>
       </>
     ),
@@ -143,7 +143,7 @@ const faqData = [
         <p className="font-semibold mt-3 mb-1">Example:</p>
         <blockquote className="border-l-4 border-gray-300 dark:border-gray-600 pl-4 italic">
           “A real estate investor using AI to analyze neighborhood-level pricing trends? That touches real estate, data
-          science, and financial strategy. My Lindy connects those dots.”
+          science, and financial strategy. ClearClaim connects those dots.”
         </blockquote>
       </>
     ),
@@ -167,11 +167,11 @@ const faqData = [
     ),
   },
   {
-    question: "Is Poe included in My Lindy plans?",
+    question: "Is Poe included in ClearClaim plans?",
     answer: (
       <>
         <p>
-          Yes! Poe's powerful content generation capabilities are included with <strong>all My Lindy plans</strong>,
+          Yes! Poe's powerful content generation capabilities are included with <strong>all ClearClaim plans</strong>,
           making advanced, human-like content creation accessible to everyone.
         </p>
         <p className="mt-2">
@@ -185,11 +185,11 @@ const faqData = [
     ),
   },
   {
-    question: "Can My Lindy automatically post Poe-generated content to my websites?",
+    question: "Can ClearClaim automatically post Poe-generated content to my websites?",
     answer: (
       <>
         <p>
-          Absolutely. My Lindy can be configured to automatically publish content created by Poe directly to your
+          Absolutely. ClearClaim can be configured to automatically publish content created by Poe directly to your
           designated websites, streamlining your content workflow.
         </p>
         <p className="mt-2">
@@ -214,18 +214,18 @@ export default function PoePage() {
         <section className="py-24 bg-white dark:bg-gray-950">
           <div className="container px-4 md:px-6 mx-auto">
             <SectionTransition className="text-center max-w-3xl mx-auto mb-12">
-              <div className="text-sm text-gray-500 dark:text-gray-400 mb-2">Content generation</div>
+              <div className="text-sm text-gray-500 dark:text-gray-400 mb-2">Letters &amp; filings</div>
               <h1 className="text-4xl md:text-5xl font-medium tracking-tight mb-4 text-gray-900 dark:text-white">
-                Write real. Win search.
+                Dispute letters that cite your actual line items
               </h1>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-                Rank high without sounding like a machine.
+                Turn audit JSON into hospital-ready PDFs, insurer appeals, and regulator drafts—always with human review.
               </p>
 
               <div className="flex justify-center">
                 <Image
                   src="/poe-my-lindy-strawberry-antler.svg"
-                  alt="My Lindy integration with Poe for content generation"
+                  alt="ClearClaim document generation for billing disputes"
                   width={320}
                   height={200}
                   className="rounded-lg object-contain w-full max-w-sm h-auto"

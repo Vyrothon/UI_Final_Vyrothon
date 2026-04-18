@@ -12,18 +12,17 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 
 const faqData = [
   {
-    question: "What makes Lindy Forms different from other form builders?",
+    question: "What makes ClearClaim intake different from other form builders?",
     answer: (
       <>
         <p className="mb-4">
-          The key difference with Lindy Forms is our focus on simplicity and ease of use. We've designed a clean,
+          The key difference with ClearClaim intake is our focus on simplicity and ease of use. We've designed a clean,
           clutter-free interface that lets you build and manage powerful forms without the complexity found in other
           tools.
         </p>
         <p>
-          While we offer advanced features like automation and CRM integration, our core philosophy is to provide a
-          straightforward, intuitive experience. This means you can get started quickly, build beautiful forms that are
-          easy for your customers to fill out, and manage your data without a steep learning curve.
+          Submissions land in your ClearClaim case workspace with encryption and retention controls, so clinical and
+          financial paperwork stays organized for audits and disputes.
         </p>
       </>
     ),
@@ -55,7 +54,7 @@ const faqData = [
     answer: (
       <>
         <p className="mb-4">
-          Lindy Forms support a wide range of field types to capture the exact data you need, including:
+          ClearClaim intake supports the field types you need for medical billing packets, including:
         </p>
         <ul className="list-disc list-outside space-y-2 pl-5">
           <li>Text Input (single line) and Text Area (multi-line)</li>
@@ -78,24 +77,24 @@ const faqData = [
     ),
   },
   {
-    question: "How do Lindy Forms help with lead generation and sales?",
+    question: "How does intake feed the rest of ClearClaim?",
     answer: (
       <>
         <p className="mb-4">
-          Lindy Forms are built to directly fuel your sales pipeline. Key automation features include:
+          Every upload becomes a structured case: OCR, line-item extraction, fraud-pattern checks, and letter generation
+          all key off the same intake record.
         </p>
         <ul className="list-disc list-outside space-y-2 pl-5">
           <li>
-            <strong>Prospect Auto-Creation:</strong> Automatically create a new prospect profile in your system the
-            moment a form is submitted.
+            <strong>Automatic case creation:</strong> New bills spawn a dispute timeline with reminders and document
+            slots.
           </li>
           <li>
-            <strong>CRM Synchronization:</strong> Connect forms directly to your CRM to ensure lead data is always
-            up-to-date without manual entry.
+            <strong>Team visibility:</strong> Family plans let caregivers share the same case without forwarding PDFs
+            over email.
           </li>
           <li>
-            <strong>Email Notifications:</strong> Instantly alert sales team members about new leads so they can follow
-            up immediately.
+            <strong>Alerts:</strong> Notify your desk when a hospital responds or a deadline hits.
           </li>
         </ul>
       </>
@@ -135,7 +134,7 @@ const faqData = [
     answer: (
       <>
         <p className="mb-4">
-          Yes, Lindy Forms are built for collaboration. Our workflow features allow your team to work together
+          Yes, ClearClaim intake flows are built for collaboration. Permissions let your team work together
           efficiently:
         </p>
         <ul className="list-disc list-outside space-y-2 pl-5">
@@ -156,12 +155,12 @@ const faqData = [
     ),
   },
   {
-    question: "Are Lindy Forms included in the pricing plans?",
+    question: "Are ClearClaim intake included in the pricing plans?",
     answer: (
       <>
         <p className="mb-2">
-          Yes, Lindy Forms are a core feature and are included in both our Single User and Team plans. This means you
-          get access to the full suite of form creation, automation, and management tools as part of your subscription.
+          Yes, intake is included on every tier that allows document submission. Higher tiers unlock automation, team
+          seats, and webhook exports into your own systems.
         </p>
         <p className="mb-2">
           Additionally, all plans come with webhook capabilities, allowing you to easily send form submission data to
@@ -189,18 +188,18 @@ export default function FormsPage() {
         <section className="py-24 bg-white dark:bg-gray-950">
           <div className="container px-4 md:px-6 mx-auto">
             <SectionTransition className="text-center max-w-3xl mx-auto mb-12">
-              <div className="text-sm text-gray-500 dark:text-gray-400 mb-2">Forms</div>
+              <div className="text-sm text-gray-500 dark:text-gray-400 mb-2">Intake</div>
               <h1 className="text-4xl md:text-5xl font-medium tracking-tight mb-4 text-gray-900 dark:text-white">
-                Automate lead capture{" "}
+                Capture bills without losing the paperwork trail
               </h1>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-                Instantly create prospects and trigger workflows.
+                Drag-and-drop fields, secure uploads, and instant routing into your ClearClaim audit queue.
               </p>
               {/* Removed Book Demo Button */}
               <div className="flex justify-center">
                 <Image
                   src="/my-lindy-forms-hero.svg"
-                  alt="Lindy AI forms for insurance, finance, and marketing"
+                  alt="ClearClaim bill intake and document upload"
                   width={576}
                   height={360}
                   className="rounded-lg object-contain w-full max-w-xl"

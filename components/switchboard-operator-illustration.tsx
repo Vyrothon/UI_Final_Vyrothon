@@ -296,7 +296,7 @@ export default function SwitchboardOperatorIllustration({ className = "" }: { cl
             visible: { opacity: 1, transition: { delay: 5.3 } },
           }}
         >
-          Lindy: The AI Switchboard Operator
+          ClearClaim: bill intelligence router
         </motion.text>
       </motion.svg>
     </div>

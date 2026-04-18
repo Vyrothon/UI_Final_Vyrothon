@@ -1,6 +1,7 @@
 // app/sitemap.xml/route.ts
 import { promises as fs } from "fs"
 import path from "path"
+import { SITE_URL } from "@/lib/site-config"
 
 // Function to recursively find all page.tsx files
 async function getPageRoutes(dir: string, baseDir: string): Promise<string[]> {
@@ -47,8 +48,7 @@ async function getPageRoutes(dir: string, baseDir: string): Promise<string[]> {
 }
 
 export async function GET() {
-  // Hardcoding the base URL to ensure reliability.
-  const baseUrl = "https://www.mylindy.com"
+  const baseUrl = SITE_URL.replace(/\/$/, "")
   const appDir = path.join(process.cwd(), "app")
 
   // Get all static page routes by scanning the app directory

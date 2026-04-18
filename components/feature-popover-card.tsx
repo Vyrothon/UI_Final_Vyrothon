@@ -31,7 +31,7 @@ export default function FeaturePopoverCard({
       <Popover open={isOpen} onOpenChange={setIsOpen}>
         <PopoverTrigger asChild>
           <Card
-            className="h-full bg-white dark:bg-gray-950 border border-gray-100 dark:border-gray-800 p-6 transition-all duration-300 cursor-pointer hover:shadow-md hover:-translate-y-1"
+            className="h-full bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-800 p-6 transition-all duration-300 cursor-pointer hover:shadow-md hover:-translate-y-1"
             onClick={() => setIsOpen(true)}
           >
             <div className="flex flex-col h-full">
@@ -43,7 +43,7 @@ export default function FeaturePopoverCard({
           </Card>
         </PopoverTrigger>
         <PopoverContent
-          className="w-80 p-0 bg-white dark:bg-gray-950 shadow-lg border border-gray-100 dark:border-gray-800 rounded-lg"
+          className="w-80 p-0 bg-white dark:bg-gray-950 shadow-lg border border-gray-200 dark:border-gray-800 rounded-lg"
           sideOffset={5}
           align="center"
           side="top"

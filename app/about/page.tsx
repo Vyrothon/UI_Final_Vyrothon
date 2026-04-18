@@ -110,42 +110,44 @@ export default function AboutPage() {
 
               <div className="space-y-6 text-gray-700 leading-relaxed relative z-10">
                 <p>
-                  With <strong>Strawberry Antler</strong>, the company behind Lindy, the mission is clear, even when the
-                  path isn't. We build AI that's actually useful and feels great to use.
+                  Hospital bills are designed to be unreadable at the moment you are least able to fight back.
+                  <strong> ClearClaim</strong> exists so patients and families get leverage: structured audits, plain
+                  language, dispute documents, and paths to real counsel—not another opaque portal.
                 </p>
                 <p>
-                  We're not just another tech company; we're licensed independent insurance agents ourselves. We've
-                  lived the challenges of the industry and built Lindy to solve them.
+                  We focus on countries where private care is growing fast and regulation lags—Pakistan, the United
+                  States, India, the Gulf, the UK—anywhere bills mix life-saving care with line items nobody can verify
+                  alone.
                 </p>
 
                 <p>
-                  We believe software should get out of your way. Ours is built to be fast, clean, and—dare we say
-                  it—fun. But ease of use isn't the whole point.
+                  Our north star is simple: turn a PDF or photo into an actionable case file. Cross-check codes and
+                  published rates where governments publish them; fall back to rigorous pattern detection when they do
+                  not. Never confuse “AI said so” with a court judgment—always pair tools with human review.
                 </p>
 
                 <p>
-                  We're here for the doers. The lean teams, the scrappy startups, the solo operators punching above
-                  their weight. Our job is to give them leverage. Help them compete, win, and scale in a world built for
-                  giants.
+                  We are building the negotiation layer between you and the billing department: what to ask for, what
+                  to cite, what to send in writing, and how to escalate when silence is the answer.
                 </p>
 
                 <p>
-                  At the core is our AI-infused CRM. It's smart enough to automate the busywork, sharp enough to surface
-                  what matters, and flexible enough to adapt to your flow. It doesn't just store data. It helps you act
-                  on it.
+                  ClearClaim is <strong>not a law firm</strong> and not your doctor. We generate software-assisted
+                  drafts and introductions to independent attorneys. You stay in control of every send and every
+                  signature.
                 </p>
 
                 <p>
-                  We don't just ship software and wish you luck. We build with you. Custom AI agents. Purpose-built
-                  workflows. Real support every step of the way.
+                  If we can shave fear and confusion off the worst week of someone’s year, we have done the job. If we
+                  help recover money that never should have been billed, even better.
                 </p>
 
                 <p>
-                  AI is noisy. Confusing. We cut through that. We handle setup, integrations, hands-on training, and
-                  ongoing support. Because we don't just sell software. We serve our clients.
+                  Tell us where the product falls short—billing is adversarial by design, and we will keep tightening
+                  the audit until patients stop paying phantom lines by default.
                 </p>
 
-                <p>We're here to help you win. And if we miss the mark, tell us. We'll make it right. Fast.</p>
+                <p>Hold the bill. Run the audit. Ask harder questions.</p>
               </div>
 
               {/* Letter signature line */}

@@ -58,7 +58,7 @@ export default function FeatureCardWithPopover({
         viewport={{ once: true, margin: "-50px" }}
       >
         <Card
-          className={`h-full bg-white dark:bg-gray-950 border border-gray-100 dark:border-gray-800 p-6 transition-all duration-200 cursor-pointer hover:shadow-md relative z-10 ${
+          className={`h-full bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-800 p-6 transition-all duration-200 cursor-pointer hover:shadow-md relative z-10 ${
             isOpen ? "ring-2 ring-offset-2" : ""
           }`}
           style={{

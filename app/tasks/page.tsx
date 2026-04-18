@@ -8,73 +8,72 @@ import Link from "next/link"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 const faqData = [
   {
-    question: "How does task assignment work for teams in My Lindy?",
+    question: "How does task assignment work for teams in ClearClaim?",
     answer: (
       <p>
-        In My Lindy, you can assign tasks directly to specific team members, which fosters a clear sense of ownership
+        In ClearClaim, you can assign tasks directly to specific team members, which fosters a clear sense of ownership
         and responsibility.
       </p>
     ),
   },
   {
-    question: "Can I control who sees which tasks in My Lindy?",
+    question: "Can I control who sees which tasks in ClearClaim?",
     answer: (
       <p>
-        Yes, with My Lindy, you have full control. You can make tasks private for individual focus or visible to the
+        Yes, with ClearClaim, you have full control. You can make tasks private for individual focus or visible to the
         entire team for collaborative projects.
       </p>
     ),
   },
   {
-    question: "How can I filter tasks by assignee in My Lindy?",
+    question: "How can I filter tasks by assignee in ClearClaim?",
     answer: (
       <p>
-        The My Lindy task list can be quickly filtered to show only the tasks assigned to a particular team member,
+        The ClearClaim task list can be quickly filtered to show only the tasks assigned to a particular team member,
         helping everyone focus on their responsibilities.
       </p>
     ),
   },
   {
-    question: "Is there a way to see unassigned tasks in My Lindy?",
+    question: "Is there a way to see unassigned tasks in ClearClaim?",
     answer: (
       <p>
-        Absolutely. My Lindy provides a dedicated filter that shows all tasks that haven’t been assigned yet, ensuring
+        Absolutely. ClearClaim provides a dedicated filter that shows all tasks that haven’t been assigned yet, ensuring
         that nothing falls through the cracks.
       </p>
     ),
   },
   {
-    question: "What are some examples of how teams use My Lindy task management?",
+    question: "What are some examples of how teams use ClearClaim task management?",
     answer: (
       <ul className="list-disc list-outside space-y-2 pl-5">
         <li>
-          <strong>Sales Teams:</strong> Assign lead follow-ups and track key outreach deadlines using My Lindy.
+          <strong>Patients:</strong> Track “call billing,” “mail letter,” and insurer deadlines in one place.
         </li>
         <li>
-          <strong>Managers:</strong> Monitor overdue items and assess workload distribution at a glance with My Lindy.
+          <strong>Caregivers:</strong> Split responsibilities across family members without losing context.
         </li>
         <li>
-          <strong>Cross-functional Teams:</strong> Align on priorities and stay coordinated, even across different time
-          zones, through My Lindy.
+          <strong>Paralegal desks:</strong> See every open dispute, SLA, and recovery update across clients.
         </li>
       </ul>
     ),
   },
   {
-    question: "What makes My Lindy's task management different?",
+    question: "What makes ClearClaim's task management different?",
     answer: (
       <p>
-        The My Lindy To-Do + Calendar system provides task-level precision with the broader context of a calendar. It's
+        The ClearClaim To-Do + Calendar system provides task-level precision with the broader context of a calendar. It's
         designed for fast-moving teams that need clarity and coordination without constantly switching between different
-        tools. My Lindy is simple enough for individual use but powerful enough to manage an entire team.
+        tools. ClearClaim is simple enough for individual use but powerful enough to manage an entire team.
       </p>
     ),
   },
   {
-    question: "Is this My Lindy task management feature included in my plan?",
+    question: "Is this ClearClaim task management feature included in my plan?",
     answer: (
       <p>
-        Yes, our comprehensive My Lindy task management and team collaboration tools are included with all My Lindy
+        Yes, our comprehensive ClearClaim task management and team collaboration tools are included with all ClearClaim
         plans. You can find more details on our{" "}
         <Link href="/pricing" className="text-primary hover:underline font-medium">
           pricing page
@@ -105,7 +104,7 @@ export default function TasksPage() {
               <div className="flex justify-center">
                 <Image
                   src="/my-lindy-ai-tasks.svg"
-                  alt="My Lindy tasks for team collaboration and project management"
+                  alt="ClearClaim dispute tracker and task board"
                   width={576}
                   height={360}
                   className="rounded-lg object-contain w-full max-w-xl h-auto"

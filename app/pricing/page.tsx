@@ -12,6 +12,7 @@ import Testimonials from "@/components/testimonials"
 import BookDemoModal from "@/components/book-demo-modal"
 import Link from "next/link"
 import Image from "next/image"
+import { getAppSignupUrl } from "@/lib/site-config"
 
 const dialogStyles = `
 .dialog-close-button {
@@ -63,7 +64,7 @@ export default function PricingPage() {
 
           <StaggeredSectionTransition className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Single User Plan */}
-            <div className="bg-white rounded-lg border border-gray-100 dark:border-gray-800 p-8 shadow-sm flex flex-col">
+            <div className="bg-white rounded-lg border border-gray-200 dark:border-gray-800 p-8 shadow-sm flex flex-col">
               <h3 className="text-xl font-bold mb-2">Single User</h3>
 
               <div className="flex items-baseline mb-6">
@@ -76,7 +77,7 @@ export default function PricingPage() {
                   <p className="text-sm">1 user account</p>
                 </div>
                 <div className="flex items-start gap-2">
-                  <p className="text-sm">AI-powered CRM</p>
+                  <p className="text-sm">Audit &amp; dispute workspace</p>
                   <Dialog>
                     <DialogTrigger asChild>
                       <button className="inline-flex items-center gap-1 px-2 py-1 text-xs bg-gray-100 hover:bg-gray-200 rounded-md transition-colors">
@@ -91,7 +92,7 @@ export default function PricingPage() {
                           <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
                             <p className="text-sm text-muted-foreground mb-3">
                               Comes pre-integrated with OpenAI, Grok, Claude, and a proprietary assistant that deeply
-                              understands your business's workflows, documents, and client relationships.
+                              understands your bills, flags, and dispute history in one workspace.
                             </p>
                             <p className="text-sm text-muted-foreground mb-3">
                               This AI knows your clients, your pipeline, your documents, and your business processes
@@ -105,7 +106,7 @@ export default function PricingPage() {
                         </div>
 
                         <div className="space-y-4">
-                          <h4 className="font-semibold text-lg text-left">Core CRM Features</h4>
+                          <h4 className="font-semibold text-lg text-left">What&apos;s included</h4>
                           <div className="grid gap-3">
                             <div className="p-3 bg-white border rounded-lg flex items-center justify-between">
                               <div>
@@ -122,7 +123,7 @@ export default function PricingPage() {
                               <div>
                                 <p className="text-sm font-medium">Smart Forms & Custom Fields</p>
                                 <p className="text-xs text-muted-foreground">
-                                  Automated lead creation from intake forms with direct CRM integration
+                                  Structured bill intake with secure storage and line-item extraction
                                 </p>
                               </div>
                               <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
@@ -249,7 +250,7 @@ export default function PricingPage() {
                             </div>
                             <div className="p-3 bg-white border rounded-lg flex items-center justify-between">
                               <div>
-                                <p className="text-sm font-medium">CRM & Sales</p>
+                                <p className="text-sm font-medium">Disputes &amp; escalations</p>
                                 <p className="text-xs text-muted-foreground">
                                   Salesforce, other basic integrations via API/webhooks
                                 </p>
@@ -330,10 +331,10 @@ export default function PricingPage() {
                           </div>
                         </div>
 
-                        <div className="p-4 bg-white border border-gray-100 rounded-lg">
+                        <div className="p-4 bg-white border border-gray-200 rounded-lg">
                           <p className="text-sm text-gray-700">
                             <strong>API & Webhook Access:</strong> All integrations with API and webhook connections are
-                            available. CRM/Sales integrations are included in this plan. Need custom integrations or
+                            available. ClearClaim integrations are included in this plan. Need custom integrations or
                             specialized features? Contact us to have us build a custom AI agent with your exact
                             workflow.
                           </p>
@@ -350,7 +351,7 @@ export default function PricingPage() {
                     href="/forms"
                     className="text-sm text-foreground underline hover:text-primary hover:opacity-75 transition-all duration-200"
                   >
-                    Lindy forms
+                    ClearClaim intake
                   </Link>
                   <Dialog>
                     <DialogTrigger asChild>
@@ -362,7 +363,7 @@ export default function PricingPage() {
                     <DialogContent className="sm:max-w-[700px] max-w-[85vw] p-4 sm:p-6 max-h-[80vh] overflow-y-auto bg-white rounded-[0.5rem] fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-lg border">
                       <div className="space-y-6 bg-white">
                         <div className="space-y-4">
-                          <h4 className="font-semibold text-lg text-left">What Lindy Forms Do</h4>
+                          <h4 className="font-semibold text-lg text-left">What bill intake includes</h4>
                           <div className="p-4 bg-gray-50 border rounded-lg">
                             <p className="text-sm text-muted-foreground">
                               Create dynamic, mobile-friendly web forms that capture and validate client data in real
@@ -391,7 +392,7 @@ export default function PricingPage() {
                             <div className="p-3 bg-white border rounded-lg">
                               <p className="text-sm font-medium mb-1">Intake and Process Data</p>
                               <p className="text-xs text-muted-foreground">
-                                Form submissions are validated, stored, and converted to structured records in your CRM
+                                Form submissions are validated, stored, and stored as structured records in your case folder
                                 or client database. Uploaded documents are automatically processed and analyzed.
                               </p>
                             </div>
@@ -420,7 +421,7 @@ export default function PricingPage() {
                                 <div className="p-2 bg-white border rounded-lg">
                                   <p className="text-xs font-medium">Policy Review Intake</p>
                                   <p className="text-xs text-muted-foreground">
-                                    Allow clients to upload current insurance documents for comparison and analysis
+                                    Allow patients to upload hospital bills and EOBs for audit and dispute prep
                                   </p>
                                 </div>
                                 <div className="p-2 bg-white border rounded-lg">
@@ -487,7 +488,7 @@ export default function PricingPage() {
                           <div className="p-3 bg-gray-50 border rounded-lg">
                             <p className="text-sm text-muted-foreground">
                               The knowledge base is a shared, AI-accessible memory that powers every tool on the
-                              platform—Lindy, Gmail, Zapier, and more.
+                              platform—ClearClaim, Gmail, Zapier, and more.
                             </p>
                           </div>
                         </div>
@@ -534,7 +535,7 @@ export default function PricingPage() {
                           </div>
                         </div>
 
-                        <div className="p-4 bg-white border border-gray-100 rounded-lg">
+                        <div className="p-4 bg-white border border-gray-200 rounded-lg">
                           <p className="text-sm text-gray-700">
                             <strong>In short:</strong> the knowledge base helps your team work faster, stay aligned, and
                             scale with confidence.
@@ -546,7 +547,7 @@ export default function PricingPage() {
                 </div>
               </div>
 
-              <a href="https://app.mylindy.com/auth" target="_blank" rel="noopener noreferrer">
+              <a href={getAppSignupUrl()}>
                 <Button className="w-full rounded-[0.5rem] bg-[#1a1d21] hover:bg-[#2a2d31] text-white">
                   Get Started
                 </Button>
@@ -591,7 +592,7 @@ export default function PricingPage() {
                   </Dialog>
                 </div>
                 <div className="flex items-start gap-2">
-                  <p className="text-sm">AI-powered CRM</p>
+                  <p className="text-sm">Audit &amp; dispute workspace</p>
                   <Dialog>
                     <DialogTrigger asChild>
                       <button className="inline-flex items-center gap-1 px-2 py-1 text-xs bg-gray-100 hover:bg-gray-200 rounded-md transition-colors">
@@ -608,7 +609,7 @@ export default function PricingPage() {
                           <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
                             <p className="text-sm text-muted-foreground mb-3">
                               Comes pre-integrated with OpenAI, Grok, Claude, and a proprietary assistant that deeply
-                              understands your business's workflows, documents, and client relationships.
+                              understands your bills, flags, and dispute history in one workspace.
                             </p>
                             <p className="text-sm text-muted-foreground mb-3">
                               This AI knows your clients, your pipeline, your documents, and your business processes
@@ -622,7 +623,7 @@ export default function PricingPage() {
                         </div>
 
                         <div className="space-y-4">
-                          <h4 className="font-semibold text-lg text-left">Core CRM Features</h4>
+                          <h4 className="font-semibold text-lg text-left">What&apos;s included</h4>
                           <div className="grid gap-3">
                             <div className="p-3 bg-white border rounded-lg flex items-center justify-between">
                               <div>
@@ -639,7 +640,7 @@ export default function PricingPage() {
                               <div>
                                 <p className="text-sm font-medium">Smart Forms & Custom Fields</p>
                                 <p className="text-xs text-muted-foreground">
-                                  Automated lead creation from intake forms with direct CRM
+                                  Structured bill intake with secure storage and line-item extraction
                                 </p>
                               </div>
                               <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
@@ -781,7 +782,7 @@ export default function PricingPage() {
                             </div>
                             <div className="p-3 bg-white border rounded-lg flex items-center justify-between">
                               <div>
-                                <p className="text-sm font-medium">CRM & Sales</p>
+                                <p className="text-sm font-medium">Disputes &amp; escalations</p>
                                 <p className="text-xs text-muted-foreground">Salesforce, HubSpot, Pipedrive</p>
                               </div>
                               <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
@@ -832,7 +833,7 @@ export default function PricingPage() {
                               <div>
                                 <h5 className="font-medium text-sm mb-2">ACORD Me Not</h5>
                                 <p className="text-xs text-muted-foreground">
-                                  Specialized insurance document parser that extracts data from policies and generates
+                                  Specialized billing parser that extracts line items from bills and generates
                                   ACORD forms in under 2 minutes.
                                 </p>
                               </div>
@@ -865,7 +866,7 @@ export default function PricingPage() {
                     href="/forms"
                     className="text-sm text-foreground underline hover:text-primary hover:opacity-75 transition-all duration-200"
                   >
-                    Lindy forms
+                    ClearClaim intake
                   </Link>
                   <Dialog>
                     <DialogTrigger asChild>
@@ -877,7 +878,7 @@ export default function PricingPage() {
                     <DialogContent className="sm:max-w-[700px] max-w-[85vw] p-4 sm:p-6 max-h-[80vh] overflow-y-auto bg-white rounded-[0.5rem] fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-lg border">
                       <div className="space-y-6 bg-white">
                         <div className="space-y-4">
-                          <h4 className="font-semibold text-lg text-left">What Lindy Forms Do</h4>
+                          <h4 className="font-semibold text-lg text-left">What bill intake includes</h4>
                           <div className="p-4 bg-gray-50 border rounded-lg">
                             <p className="text-sm text-muted-foreground">
                               Create dynamic, mobile-friendly web forms that capture and validate client data in real
@@ -906,7 +907,7 @@ export default function PricingPage() {
                             <div className="p-3 bg-white border rounded-lg">
                               <p className="text-sm font-medium mb-1">Intake and Process Data</p>
                               <p className="text-xs text-muted-foreground">
-                                Form submissions are validated, stored, and converted to structured records in your CRM
+                                Form submissions are validated, stored, and stored as structured records in your case folder
                                 or client database. Uploaded documents are automatically processed and analyzed.
                               </p>
                             </div>
@@ -935,7 +936,7 @@ export default function PricingPage() {
                                 <div className="p-2 bg-white border rounded-lg">
                                   <p className="text-xs font-medium">Policy Review Intake</p>
                                   <p className="text-xs text-muted-foreground">
-                                    Allow clients to upload current insurance documents for comparison and analysis
+                                    Allow patients to upload hospital bills and EOBs for audit and dispute prep
                                   </p>
                                 </div>
                                 <div className="p-2 bg-white border rounded-lg">
@@ -1002,7 +1003,7 @@ export default function PricingPage() {
                           <div className="p-3 bg-gray-50 border rounded-lg">
                             <p className="text-sm text-muted-foreground">
                               The knowledge base is a shared, AI-accessible memory that powers every tool on the
-                              platform—Lindy, Gmail, Zapier, and more.
+                              platform—ClearClaim, Gmail, Zapier, and more.
                             </p>
                           </div>
                         </div>
@@ -1049,7 +1050,7 @@ export default function PricingPage() {
                           </div>
                         </div>
 
-                        <div className="p-4 bg-white border border-gray-100 rounded-lg">
+                        <div className="p-4 bg-white border border-gray-200 rounded-lg">
                           <p className="text-sm text-gray-700">
                             <strong>In short:</strong> the knowledge base helps your team work faster, stay aligned, and
                             scale with confidence.
@@ -1061,7 +1062,7 @@ export default function PricingPage() {
                 </div>
               </div>
 
-              <a href="https://app.mylindy.com/auth" target="_blank" rel="noopener noreferrer">
+              <a href={getAppSignupUrl()}>
                 <Button className="w-full rounded-[0.5rem] bg-primary hover:bg-primary/90 text-white">
                   Get Started
                 </Button>
@@ -1069,7 +1070,7 @@ export default function PricingPage() {
             </div>
 
             {/* Enterprise Plan */}
-            <div className="bg-white rounded-lg border border-gray-100 dark:border-gray-800 p-8 shadow-sm flex flex-col">
+            <div className="bg-white rounded-lg border border-gray-200 dark:border-gray-800 p-8 shadow-sm flex flex-col">
               <h3 className="text-xl font-bold mb-2">Platinum</h3>
 
               <div className="flex items-baseline mb-2">
@@ -1242,8 +1243,8 @@ export default function PricingPage() {
                 <div className="flex items-start gap-2">
                   <p className="text-sm">
                     Includes{" "}
-                    <Link href="/owen" className="text-primary underline">
-                      AI agent Owen
+                    <Link href="/demo" className="text-primary underline">
+                      full dispute &amp; counsel paths
                     </Link>
                   </p>
                   <Dialog>
@@ -1257,98 +1258,22 @@ export default function PricingPage() {
                       <div className="space-y-6 bg-white pt-6">
                         <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
                           <p className="text-sm text-muted-foreground mb-3">
-                            Owen isn’t just automation. He’s an AI-powered teammate who sees what’s on your screen and
-                            does the work—just like a human would. Only faster. And all day, every day.
+                            Platinum-tier ClearClaim adds human execution: our paralegal desk can run the dispute for
+                            you (success-fee model), and the legal marketplace routes your audit packet to vetted firms.
                           </p>
                           <p className="text-sm text-muted-foreground">
-                            Powered by Claude Vision, Owen is built to handle real-world web tasks across industries.
-                            Whether you're in insurance, e-commerce, logistics, finance, or customer support, Owen helps
-                            you reclaim time by taking on repetitive web-based work automatically.
+                            You still approve every letter and filing. ClearClaim is not a law firm—attorneys you choose
+                            represent you under their engagement terms.
                           </p>
                         </div>
-
                         <div className="space-y-4">
-                          <h4 className="font-semibold text-lg text-left">What Owen Can Do for You</h4>
-                          <div className="space-y-3 p-3 bg-white border border-gray-200 rounded-lg mt-2">
-                            <div>
-                              <h5 className="font-medium text-md mb-1">Visual Web Automation</h5>
-                              <p className="text-xs text-muted-foreground mb-2">
-                                Owen doesn’t rely on brittle code or scripts. He sees websites the way a person
-                                does—buttons, forms, menus, and content—and interacts with them intelligently.
-                              </p>
-                              <ul className="list-disc list-inside text-xs text-muted-foreground space-y-1">
-                                <li>Clicks buttons</li>
-                                <li>Fills out forms</li>
-                                <li>Navigates websites</li>
-                                <li>Downloads files</li>
-                                <li>Extracts visible data</li>
-                              </ul>
-                            </div>
-                            <div>
-                              <h5 className="font-medium text-md mb-1">Smart Workflow Execution</h5>
-                              <p className="text-xs text-muted-foreground">
-                                Owen performs multi-step processes across platforms. If you need to log in, pull data,
-                                sort it, and upload it somewhere else, he can do that from start to finish.
-                              </p>
-                            </div>
-                            <div>
-                              <h5 className="font-medium text-md mb-1">Scheduled Operations</h5>
-                              <p className="text-xs text-muted-foreground">
-                                You can schedule Owen to run tasks hourly, daily, or weekly. He works on your timeline,
-                                even when you're offline.
-                              </p>
-                            </div>
-                            <div>
-                              <h5 className="font-medium text-md mb-1">Screenshot Analysis</h5>
-                              <p className="text-xs text-muted-foreground">
-                                Owen can read what's on the screen. He captures snapshots, understands what’s there, and
-                                makes decisions based on what he sees—not just what’s behind the scenes in code.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="space-y-4">
-                          <h4 className="font-semibold text-lg text-left">Why Teams Choose Owen</h4>
-                          <div className="p-3 bg-white border border-gray-200 rounded-lg mt-2">
-                            <ul className="list-disc list-inside text-sm text-muted-foreground space-y-2">
-                              <li>
-                                <strong>Save Time:</strong> Automate the busywork that normally takes hours—logging into
-                                sites, navigating dashboards, copying and pasting information.
-                              </li>
-                              <li>
-                                <strong>Built for Multiple Industries:</strong> Owen helps:
-                                <ul className="list-disc list-inside ml-4 text-xs space-y-1 mt-1">
-                                  <li>E-commerce teams manage pricing, product listings, and inventory</li>
-                                  <li>Logistics teams track shipments, update carrier sites, and manage bookings</li>
-                                  <li>Finance teams pull reports, reconcile records, and monitor accounts</li>
-                                  <li>Insurance teams track claims, pull policy data, and monitor rate changes</li>
-                                  <li>
-                                    Customer service teams gather client info, verify accounts, and support faster
-                                    responses
-                                  </li>
-                                </ul>
-                              </li>
-                              <li>
-                                <strong>Runs 24/7:</strong> Owen doesn’t need breaks. He checks data, runs updates, and
-                                keeps operations moving around the clock.
-                              </li>
-                              <li>
-                                <strong>Stays Resilient:</strong> Most automations break when a web page changes. Owen
-                                adapts by seeing what’s actually on screen, not just relying on code.
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-
-                        <div className="space-y-2">
-                          <h4 className="font-semibold text-lg text-left">Let Owen Handle the Repetitive Work</h4>
-                          <div className="p-3 bg-white border border-gray-200 rounded-lg mt-2">
-                            <p className="text-sm text-muted-foreground">
-                              He sees. He clicks. He thinks. He acts. Owen turns everyday web tasks into quiet
-                              background operations. So your team can focus on the work that moves things forward.
-                            </p>
-                          </div>
+                          <h4 className="font-semibold text-lg text-left">What unlocks at this tier</h4>
+                          <ul className="list-disc list-inside text-sm text-muted-foreground space-y-2 p-3 border rounded-lg">
+                            <li>Unlimited audits and dispute letter generation</li>
+                            <li>Medication-appropriateness flags (informational only)</li>
+                            <li>Priority intake for in-house dispute handling</li>
+                            <li>Attorney matching with full structured case file export</li>
+                          </ul>
                         </div>
                       </div>
                     </DialogContent>
@@ -1384,9 +1309,9 @@ export default function PricingPage() {
       >
         <div className="container px-4 md:px:6">
           <SectionTransition className="flex flex-col items-center text-center mb-12">
-            <p className="text-sm font-medium text-muted-foreground mb-2 tracking-wide">Custom agents</p>
+            <p className="text-sm font-medium text-muted-foreground mb-2 tracking-wide">Enterprise</p>
             <h2 id="custom-ai-agents-heading" className="text-3xl md:text-4xl font-medium tracking-tight mb-4">
-              Custom agents
+              Payer &amp; hospital tooling
             </h2>
           </SectionTransition>
 
@@ -1396,16 +1321,16 @@ export default function PricingPage() {
                 <div className="flex flex-col items-center text-center mb-2">
                   <Image
                     src="/Edison ai rater for commercial insurance (2).svg" // Updated src
-                    alt="Edison AI Insurance Rater"
+                    alt="Payer audit integration"
                     width={128}
                     height={128}
                     className="object-contain mb-4"
                   />
-                  <CardTitle className="text-xl text-left self-start">Custom insurance rater</CardTitle>
+                  <CardTitle className="text-xl text-left self-start">Payer &amp; TPA audit API</CardTitle>
                 </div>
                 <CardDescription>
-                  Custom-built AI for accurate home, auto, and commercial insurance rating for your state or area.
-                  Streamline your quoting process.
+                  Batch-audit inbound hospital invoices before payment. Catch unbundling, duplicates, and phantom lines
+                  before funds leave your plan.
                 </CardDescription>
               </CardHeader>
               <CardContent className="flex-grow">
@@ -1418,16 +1343,16 @@ export default function PricingPage() {
                 <div className="flex flex-col items-center text-center mb-2">
                   <Image
                     src="/ai stock and finance ai agent with mylindy.com.svg"
-                    alt="Market agent"
+                    alt="Billing analytics"
                     width={160}
                     height={160}
                     className="object-contain mb-4"
                   />
-                  <CardTitle className="text-xl text-left self-start">Market agent</CardTitle>
+                  <CardTitle className="text-xl text-left self-start">Facility benchmarking</CardTitle>
                 </div>
                 <CardDescription>
-                  Your personalized AI for market analysis, trend prediction, and investment insights. (For
-                  informational purposes only).
+                  Aggregate anonymized flags by hospital and specialty to see where your members are overpaying—ops
+                  intelligence, not investment advice.
                 </CardDescription>
               </CardHeader>
               <CardContent className="flex-grow">
@@ -1435,7 +1360,7 @@ export default function PricingPage() {
               </CardContent>
               <CardFooter>{/* Content removed */}</CardFooter>
             </Card>
-            <Card className="flex flex-col bg-white rounded-lg border border-gray-100 dark:border-gray-800 shadow-sm">
+            <Card className="flex flex-col bg-white rounded-lg border border-gray-200 dark:border-gray-800 shadow-sm">
               <CardHeader>
                 <div className="flex flex-col items-center text-center mb-2">
                   <Image
@@ -1445,11 +1370,11 @@ export default function PricingPage() {
                     height={128}
                     className="object-contain mb-4 opacity-100"
                   />
-                  <CardTitle className="text-xl text-left self-start">Workflow automation</CardTitle>
+                  <CardTitle className="text-xl text-left self-start">Dispute playbooks</CardTitle>
                 </div>
                 <CardDescription>
-                  Replace manual tasks and VAs with custom AI-driven workflows. We build automations unique to your
-                  business operations.
+                  Automate follow-up sequences: reminders, letter variants, and intake packets tailored to each hospital
+                  or insurer workflow.
                 </CardDescription>
               </CardHeader>
               <CardContent className="flex-grow">
@@ -1467,10 +1392,11 @@ export default function PricingPage() {
                     height={128}
                     className="object-contain mb-4"
                   />
-                  <CardTitle className="text-xl text-left self-start">AI caller</CardTitle>
+                  <CardTitle className="text-xl text-left self-start">Call scripts &amp; coaching</CardTitle>
                 </div>
                 <CardDescription>
-                  AI-powered agent for handling inbound and outbound calls to prospects and clients, 24/7.
+                  Optional voice guidance that walks patients through what to say to billing—never replaces legal
+                  counsel; informational support only.
                 </CardDescription>
               </CardHeader>
               <CardContent className="flex-grow">
@@ -1482,15 +1408,15 @@ export default function PricingPage() {
             <Card className="flex flex-col bg-white border-gray-200 dark:border-gray-700">
               <CardHeader>
                 <div className="flex items-center gap-3 mb-2">
-                  <CardTitle className="text-xl">Custom agents</CardTitle>
+                  <CardTitle className="text-xl">Custom audit rules</CardTitle>
                 </div>
                 <CardDescription>
-                  Need something specific? We build custom AI agents for your unique business needs.
+                  Country-specific code lists, success-fee logic, and integrations with your claims platform.
                 </CardDescription>
               </CardHeader>
               <CardContent className="flex-grow">
                 <p className="text-sm text-muted-foreground">
-                  Tell us your requirements and we'll create a tailored AI solution.
+                  Tell us your jurisdiction and volume—we tailor ClearClaim to your compliance and SLAs.
                 </p>
               </CardContent>
               <CardFooter>

@@ -206,7 +206,7 @@ export default function IndustrySolutions() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              Lindy adapts to your specific business needs with industry-focused features and workflows
+              ClearClaim adapts fraud checks, letter templates, and counsel matching to your region and case type
             </motion.p>
           </motion.div>
         </SectionTransition>
@@ -309,7 +309,7 @@ export default function IndustrySolutions() {
 
                 <div className="pt-6 border-t">
                   <p className="text-sm text-muted-foreground mb-4">
-                    Join thousands of {selected.name.toLowerCase()} already using Lindy to transform their operations
+                    Join teams already using ClearClaim to challenge unfair hospital bills
                   </p>
                   <Button className="w-full group">
                     Get Started for {selected.name}
@@ -321,25 +321,18 @@ export default function IndustrySolutions() {
               {/* Testimonial Preview */}
               <Card className="mt-6 p-6 bg-gradient-to-br from-gray-50 to-gray-100/50 border-gray-200 shadow-sm">
                 <p className="text-sm italic text-gray-600 mb-3">
-                  "Lindy has completely transformed how we manage our{" "}
-                  {selected.id === "insurance"
-                    ? "policies"
-                    : selected.id === "financial"
-                      ? "client portfolios"
-                      : selected.id === "marketing"
-                        ? "campaigns"
-                        : "operations"}
-                  . The AI-powered features save us hours every week."
+                  “ClearClaim turned a 40-page bill into a two-page dispute brief. We finally knew what to ask billing
+                  for.”
                 </p>
                 <p className="text-sm font-semibold">
                   —{" "}
                   {selected.id === "insurance"
-                    ? "Sarah Chen, Insurance Agency Owner"
+                    ? "Plan sponsor, self-funded employer"
                     : selected.id === "financial"
-                      ? "Michael Roberts, Financial Advisor"
+                      ? "CFO, mid-size company health plan"
                       : selected.id === "marketing"
-                        ? "Jessica Lee, Marketing Director"
-                        : "David Kim, Business Owner"}
+                        ? "Patient advocate, nonprofit"
+                        : "Family caregiver"}
                 </p>
               </Card>
             </div>

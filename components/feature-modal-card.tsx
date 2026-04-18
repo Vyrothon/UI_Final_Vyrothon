@@ -40,7 +40,7 @@ export default function FeatureModalCard({
         <DialogTrigger asChild>
           <Card
             className={cn(
-              "h-full bg-white dark:bg-gray-950 border border-gray-100 dark:border-gray-800 transition-all duration-300 cursor-pointer hover:shadow-md hover:-translate-y-1",
+              "h-full bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-800 transition-all duration-300 cursor-pointer hover:shadow-md hover:-translate-y-1",
             )}
           >
             <div className="p-6 h-full flex flex-col">

@@ -388,7 +388,7 @@ export default function VintageSwitchboardOperator({ className = "" }: { classNa
             visible: { opacity: 1, transition: { delay: 6 } },
           }}
         >
-          Lindy: The AI Switchboard Operator
+          ClearClaim: bill intelligence router
         </motion.text>
       </motion.svg>
     </div>

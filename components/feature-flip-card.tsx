@@ -57,12 +57,12 @@ export default function FeatureFlipCard({
   } else if (isNativeIntegrationsCard) {
     currentDescription = (
       <div className="space-y-2">
-        <p>Seamlessly connect Lindy with your existing tools. We support a wide range of native integrations:</p>
+        <p>Connect ClearClaim with email, storage, and payer systems. Supported connectors include:</p>
         <div className="text-xs space-y-1">
-          <p>• Agency Zoom, NowCerts, Hawksoft</p>
-          <p>• Fenris, Progressive, Loops</p>
-          <p>• OpenPhone, Google Calendar, Gemini</p>
-          <p>• Twilio, Zapier & more</p>
+          <p>• Gmail, Outlook, secure IMAP</p>
+          <p>• Google Drive, Dropbox, OneDrive</p>
+          <p>• Stripe, Razorpay, Calendly</p>
+          <p>• Supabase, Zapier, hospital SFTP</p>
         </div>
       </div>
     )
@@ -70,22 +70,21 @@ export default function FeatureFlipCard({
       "Automate tasks across your software stack, enhance data flow between applications, and leverage specialized AI agents for unique business processes, all within a unified platform."
   } else if (isHowItWorksCard) {
     currentDescription =
-      "Lindy is designed specifically for insurance, finance, and small business owners of all shapes and sizes. Get started with Lindy's AI assistant in minutes and let AI handle your routine tasks automatically."
+      "ClearClaim is built for patients, caregivers, employers, and payers who need defensible answers on hospital bills. Upload a document and get structured flags in minutes—not weeks."
     currentBenefit = (
       <>
         <p className="mb-3 text-sm">
-          Lindy was built for insurance agencies, real estate companies, financial services and sales teams.
+          ClearClaim supports private hospitals, TPAs, insurers, and families navigating opaque billing worldwide.
         </p>
         <div className="space-y-2">
-          <p className="font-medium">Ready-to-use integrations:</p>
-          <p>• Email, Calendar, CRM, Documents</p>
-          <p>• OpenAI, Claude, Grok AI models</p>
-          <p>• Document parsing & form generation</p>
-          <p>• Google Calendar, Gemini, OpenPhone</p>
-          <p>• Agency Zoom, NowCerts, Hawksoft</p>
-          <p>• Fenris, Progressive, Loops</p>
-          <p>• Twilio, Zapier & more</p>
-          <p className="text-xs mt-2">Custom integrations available on request</p>
+          <p className="font-medium">Ready-to-use connectors:</p>
+          <p>• Email + cloud drives for PDF intake</p>
+          <p>• Groq / Anthropic for audit models</p>
+          <p>• OCR + Vision pipelines</p>
+          <p>• SerpAPI + government rate feeds</p>
+          <p>• Stripe / Razorpay billing</p>
+          <p>• Supabase auth, storage, pgvector</p>
+          <p className="text-xs mt-2">Custom hospital or TPA integrations on request</p>
         </div>
       </>
     )
@@ -151,14 +150,14 @@ export default function FeatureFlipCard({
                     {isNativeIntegrationsCard ? (
                       <div className="space-y-2">
                         <div className="grid grid-cols-1 gap-1">
-                          <p>• Agency Zoom, NowCerts, Hawksoft</p>
-                          <p>• Fenris, Progressive, Loops</p>
-                          <p>• OpenPhone, Google Calendar, Gemini</p>
-                          <p>• Twilio, Zapier, Slack</p>
-                          <p>• OpenAI, Claude, Grok AI</p>
-                          <p>• Gmail, Outlook, Google Drive</p>
-                          <p>• HubSpot, Zoho, Salesforce</p>
-                          <p>• Asana, Trello, Monday.com</p>
+                          <p>• Gmail, Outlook, Drive, Dropbox</p>
+                          <p>• Groq, Anthropic, local LLMs</p>
+                          <p>• Supabase, Stripe, Razorpay</p>
+                          <p>• Zapier, Twilio, Slack</p>
+                          <p>• SerpAPI + rate tables</p>
+                          <p>• OCR (Tesseract, Vision)</p>
+                          <p>• SFTP / EDI for payers</p>
+                          <p>• Calendly for consults</p>
                           <p className="text-xs mt-1">Custom integrations available on request</p>
                         </div>
                       </div>

@@ -5,16 +5,17 @@ import { ArrowLeft } from "lucide-react"
 import TermsOfServiceTemplate from "@/components/terms-of-service-template"
 import MainNavbar from "@/components/main-navbar"
 import Footer from "@/components/footer"
+import { SITE_NAME_FULL, SITE_URL } from "@/lib/site-config"
 
 export const metadata: Metadata = {
-  title: "Terms of Service | My Lindy MCP AI Assistant",
-  description: "Terms of Service for using My Lindy AI platform and services.",
+  title: `Terms of Service | ${SITE_NAME_FULL}`,
+  description: "Terms of Service for using ClearClaim AI billing audit and dispute tools.",
 }
 
 export default function TermsPage() {
   const companyName = "Strawberry Antler, Inc."
-  const websiteName = "My Lindy AI Platform"
-  const websiteUrl = "https://mylindy.com"
+  const websiteName = `${SITE_NAME_FULL} Platform`
+  const websiteUrl = SITE_URL
   const contactEmail = "support@strawberryantler.com"
   const currentDate = new Date().toLocaleDateString("en-US", {
     year: "numeric",

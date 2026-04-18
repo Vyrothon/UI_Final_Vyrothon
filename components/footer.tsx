@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { SITE_NAME, getAppLoginUrl, getAppSignupUrl } from "@/lib/site-config"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -18,8 +19,8 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           {/* Logo on the left */}
           <div className="text-center md:text-left">
-            <Link href="/" className="inline-block">
-              <img src="/lindy-logo-new.svg" alt="Vyro home" className="h-9" />
+            <Link href="/" className="inline-block font-semibold text-lg tracking-tight text-foreground">
+              {SITE_NAME}
             </Link>
           </div>
 
@@ -50,22 +51,29 @@ export default function Footer() {
                     <Link href="/integrations/overview">Integrations</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
-                    <Link href="/owen">Owen</Link>
+                    <Link href="/custom">Enterprise</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
-                    <Link href="/custom">Custom</Link>
+                    <Link href="/forms">Bill intake</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
-                    <Link href="/forms">Forms</Link>
+                    <Link href="/tasks">Dispute tracker</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
-                    <Link href="/tasks">Tasks</Link>
+                    <Link href="/poe">Letters &amp; docs</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
-                    <Link href="/poe">Poe</Link>
+                    <Link href="/owen">Portal assist</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
                     <Link href="/demo">Demo</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem asChild>
+                    <Link href={getAppLoginUrl()}>Log in</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href={getAppSignupUrl()}>Sign up</Link>
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem asChild>
@@ -111,11 +119,7 @@ export default function Footer() {
         </div>
         <div className="mt-8 pt-6 border-t">
           <p className="text-sm text-muted-foreground text-center md:text-left">
-            © {currentYear}{" "}
-            <Link href="https://www.strawberryantler.com" className="hover:text-foreground">
-              Strawberry Antler
-            </Link>
-            . All rights reserved.
+            © {currentYear} {SITE_NAME}. All rights reserved.
           </p>
         </div>
       </div>
