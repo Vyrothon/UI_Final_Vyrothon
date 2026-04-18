@@ -1,8 +1,6 @@
 "use client"
 import Image from "next/image"
 
-import MainNavbar from "@/components/main-navbar"
-import Footer from "@/components/footer"
 import { Card, CardContent, CardTitle } from "@/components/ui/card"
 
 interface IntegrationItem {
@@ -198,8 +196,7 @@ const integrationData: IntegrationCategory[] = [
 
 export default function IntegrationsOverviewPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-white dark:bg-slate-950">
-      <MainNavbar />
+    <div className="flex min-h-screen flex-col bg-white dark:bg-slate-950">
       <main className="flex-grow py-8 md:py-12">
         <div className="container px-4 md:px-6 md:max-w-[860px]">
           {integrationData.map((category) => (
@@ -271,7 +268,6 @@ export default function IntegrationsOverviewPage() {
           ))}
         </div>
       </main>
-      <Footer />
     </div>
   )
 }

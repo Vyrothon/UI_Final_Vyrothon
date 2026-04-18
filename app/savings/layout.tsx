@@ -1,9 +1,10 @@
 import type React from "react"
 import type { Metadata } from "next"
+import { MarketingPageShell } from "@/components/marketing-page-shell"
 
 export const metadata: Metadata = {
-  title: "Savings calculator | ClearClaim AI",
-  description: "Estimate hours and money recovered when patients challenge incorrect hospital bills with ClearClaim.",
+  title: "Savings | ClearClaim AI",
+  description: "Time and cost savings from ClearClaim billing workflows.",
 }
 
 export default function SavingsLayout({
@@ -11,5 +12,5 @@ export default function SavingsLayout({
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return <MarketingPageShell>{children}</MarketingPageShell>
 }

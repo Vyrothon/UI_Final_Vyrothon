@@ -2,8 +2,6 @@
 
 import { Card } from "@/components/ui/card"
 import SectionTransition from "@/components/section-transition"
-import MainNavbar from "@/components/main-navbar"
-import Footer from "@/components/footer"
 import StructuredData from "@/components/structured-data"
 import { useState } from "react"
 
@@ -21,8 +19,6 @@ export default function SavingsPage() {
     <>
       <StructuredData />
       <div className="flex min-h-screen flex-col bg-white">
-        <MainNavbar />
-
         {/* Time and Cost Savings Section */}
         <section className="py-24 bg-white">
           <div className="container px-4 md:px-6 max-w-[960px] mx-auto">
@@ -253,8 +249,6 @@ export default function SavingsPage() {
             </div>
           </div>
         </section>
-
-        <Footer />
       </div>
     </>
   )

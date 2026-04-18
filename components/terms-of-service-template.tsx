@@ -1,3 +1,4 @@
+import { SITE_URL } from "@/lib/site-urls"
 // components/terms-of-service-template.tsx
 
 import type React from "react"
@@ -13,8 +14,8 @@ interface TermsOfServiceTemplateProps {
 
 const TermsOfServiceTemplate: React.FC<TermsOfServiceTemplateProps> = ({
   companyName,
-  websiteName = "ClearClaim AI Platform",
-  websiteUrl = "https://clearclaim.ai",
+  websiteName = "My Lindy AI Platform",
+  websiteUrl = SITE_URL,
   effectiveDate,
   lastUpdated,
   contactEmail,

@@ -2,13 +2,13 @@ import { SITE_URL } from "@/lib/site-config"
 
 // This route handler generates the robots.txt file on demand.
 
-export async function GET() {
-  const baseUrl = SITE_URL.replace(/\/$/, "")
+import { withSiteUrl } from "@/lib/site-urls"
 
+export async function GET() {
   const robotsTxt = `User-agent: *
 Allow: /
 
-Sitemap: ${baseUrl}/sitemap.xml
+Sitemap: ${withSiteUrl("/sitemap.xml")}
 `
 
   // Return the robots.txt as a plain text response

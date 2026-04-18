@@ -1,7 +1,5 @@
 "use client"
 import SectionTransition from "@/components/section-transition"
-import MainNavbar from "@/components/main-navbar"
-import Footer from "@/components/footer"
 import StructuredData from "@/components/structured-data"
 import Image from "next/image"
 import Link from "next/link"
@@ -89,8 +87,6 @@ export default function TasksPage() {
     <>
       <StructuredData />
       <div className="flex min-h-screen flex-col bg-white dark:bg-gray-950">
-        <MainNavbar />
-
         <section className="py-24 bg-white dark:bg-gray-950">
           <div className="container px-4 md:px-6 mx-auto">
             <SectionTransition className="text-center max-w-3xl mx-auto mb-12">
@@ -139,8 +135,6 @@ export default function TasksPage() {
             {/* FAQ Section End */}
           </div>
         </section>
-
-        <Footer />
       </div>
       <style jsx global>{`
       .reset-prose-styles h4,

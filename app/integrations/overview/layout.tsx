@@ -1,4 +1,5 @@
 import type React from "react"
+import { MarketingPageShell } from "@/components/marketing-page-shell"
 
 export const metadata = {
   title: "Integrations | ClearClaim AI",
@@ -10,5 +11,5 @@ export default function IntegrationsOverviewLayout({
 }: {
   children: React.ReactNode
 }) {
-  return <>{children}</>
+  return <MarketingPageShell>{children}</MarketingPageShell>
 }

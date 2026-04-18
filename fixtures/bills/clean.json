@@ -1,0 +1,19 @@
+{
+  "user_id": "11111111-1111-4111-8111-111111111111",
+  "hospital_name": "North Harbor Urgent Care",
+  "patient_name": "Alex Rivera",
+  "admission_date": "2026-04-01",
+  "discharge_date": "2026-04-03",
+  "total_amount": 11200,
+  "currency": "USD",
+  "bill_reference": "NH-UC-CLEAN-2026-01",
+  "source_type": "manual",
+  "line_items": [
+    {
+      "description": "Observation & lab bundle",
+      "quantity": 1,
+      "unit_price": 11200,
+      "total": 11200
+    }
+  ]
+}

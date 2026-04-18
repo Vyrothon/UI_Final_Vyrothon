@@ -12,7 +12,7 @@ import Testimonials from "@/components/testimonials"
 import BookDemoModal from "@/components/book-demo-modal"
 import Link from "next/link"
 import Image from "next/image"
-import { getAppSignupUrl } from "@/lib/site-config"
+import { APP_SIGNUP_URL } from "@/lib/site-urls"
 
 const dialogStyles = `
 .dialog-close-button {
@@ -547,7 +547,7 @@ export default function PricingPage() {
                 </div>
               </div>
 
-              <a href={getAppSignupUrl()}>
+              <a href={APP_SIGNUP_URL} target={APP_SIGNUP_URL.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer">
                 <Button className="w-full rounded-[0.5rem] bg-[#1a1d21] hover:bg-[#2a2d31] text-white">
                   Get Started
                 </Button>
@@ -1062,7 +1062,7 @@ export default function PricingPage() {
                 </div>
               </div>
 
-              <a href={getAppSignupUrl()}>
+              <a href={APP_SIGNUP_URL} target={APP_SIGNUP_URL.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer">
                 <Button className="w-full rounded-[0.5rem] bg-primary hover:bg-primary/90 text-white">
                   Get Started
                 </Button>

@@ -1,10 +1,10 @@
 import type React from "react"
 import type { Metadata } from "next"
+import { MarketingPageShell } from "@/components/marketing-page-shell"
 
 export const metadata: Metadata = {
-  title: "Letters & documents | ClearClaim AI",
-  description:
-    "Generate dispute letters, regulator drafts, and insurer communications from your structured audit data.",
+  title: "Letters & docs | ClearClaim AI",
+  description: "Dispute letters and document tools powered by ClearClaim.",
 }
 
 export default function PoeLayout({
@@ -12,5 +12,5 @@ export default function PoeLayout({
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return <MarketingPageShell>{children}</MarketingPageShell>
 }

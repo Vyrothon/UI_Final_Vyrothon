@@ -5,7 +5,8 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import Script from "next/script"
 import FloatingBookDemo from "@/components/floating-book-demo"
-import { SITE_NAME_FULL, SITE_URL } from "@/lib/site-config"
+import { SITE_NAME_FULL } from "@/lib/site-config"
+import { SITE_URL } from "@/lib/site-urls"
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -18,12 +19,12 @@ export const metadata: Metadata = {
   description:
     "ClearClaim AI scans hospital bills and EOBs, flags overcharges and billing fraud patterns, estimates fair totals, generates dispute documents, and connects you to vetted counsel. Not medical or legal advice.",
   keywords:
-    "ClearClaim, medical bill OCR, hospital bill audit, billing fraud, EOB review, dispute letter, medical overcharge, patient billing rights, healthcare transparency, Pakistan hospital bills, US medical billing",
+    "ClearClaim, medical bill OCR, hospital bill audit, billing fraud, EOB review, dispute letter, medical overcharge, patient billing rights, healthcare transparency, US medical billing, surprise billing, Good Faith Estimate",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: SITE_URL,
-    title: `${SITE_NAME_FULL} — Understand your hospital bill before you pay`,
+    title: "Vyro — Understand your medical bill before you pay",
     description:
       "AI-assisted billing audit: OCR, CPT/ICD cross-checks where data exists, dispute-ready letters, and lawyer marketplace. Educational tool—not a law firm.",
     siteName: SITE_NAME_FULL,

@@ -11,7 +11,8 @@ import { ThemeToggle } from "@/components/theme-toggle"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import ContactModal from "@/components/contact-modal"
 import { motion, AnimatePresence } from "framer-motion"
-import { SITE_NAME, getAppLoginUrl, getAppSignupUrl } from "@/lib/site-config"
+import { SITE_NAME } from "@/lib/site-config"
+import { APP_LOGIN_URL, APP_SIGNUP_URL } from "@/lib/site-urls"
 
 export default function MainNavbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -62,7 +63,7 @@ export default function MainNavbar() {
       href: "#",
       hasDropdown: true,
       dropdownItems: [
-        { label: "Bill intake", href: "/forms" },
+        { label: "Bill intake", href: "/dashboard" },
         { label: "Dispute tracker", href: "/tasks" },
         { label: "Letters & docs", href: "/poe" },
         { label: "Portal assist", href: "/owen" },
@@ -251,7 +252,9 @@ export default function MainNavbar() {
               size="sm"
               className="text-sm font-medium focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0 border border-gray-200 hover:border-gray-300"
             >
-              <Link href={getAppLoginUrl()}>Login</Link>
+              <Link href={APP_LOGIN_URL} target={APP_LOGIN_URL.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer">
+                Login
+              </Link>
             </Button>
 
             <ThemeToggle />
@@ -261,7 +264,9 @@ export default function MainNavbar() {
               size="sm"
               className="text-sm font-medium bg-primary hover:bg-primary/90 text-primary-foreground focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
             >
-              <Link href={getAppSignupUrl()}>Sign up</Link>
+              <Link href={APP_SIGNUP_URL} target={APP_SIGNUP_URL.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer">
+                Sign up
+              </Link>
             </Button>
           </div>
 
@@ -452,7 +457,12 @@ export default function MainNavbar() {
                             variant="outline"
                             className="mx-4 w-[calc(100%-2rem)] focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
                           >
-                            <Link href={getAppLoginUrl()} onClick={() => setIsOpen(false)}>
+                            <Link
+                              href={APP_LOGIN_URL}
+                              target={APP_LOGIN_URL.startsWith("http") ? "_blank" : undefined}
+                              rel="noopener noreferrer"
+                              onClick={() => setIsOpen(false)}
+                            >
                               Login
                             </Link>
                           </Button>
@@ -469,7 +479,12 @@ export default function MainNavbar() {
                             asChild
                             className="mx-4 w-[calc(100%-2rem)] bg-primary hover:bg-primary/90 text-primary-foreground focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
                           >
-                            <Link href={getAppSignupUrl()} onClick={() => setIsOpen(false)}>
+                            <Link
+                              href={APP_SIGNUP_URL}
+                              target={APP_SIGNUP_URL.startsWith("http") ? "_blank" : undefined}
+                              rel="noopener noreferrer"
+                              onClick={() => setIsOpen(false)}
+                            >
                               Sign up
                             </Link>
                           </Button>

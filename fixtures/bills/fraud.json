@@ -1,0 +1,55 @@
+{
+  "user_id": "22222222-2222-4222-8222-222222222222",
+  "hospital_name": "Lakeside Regional Medical Center",
+  "patient_name": "Jordan Avery",
+  "admission_date": "2026-04-02",
+  "discharge_date": "2026-04-05",
+  "total_amount": 84700,
+  "currency": "USD",
+  "bill_reference": "LRMC-2026-04872",
+  "source_type": "manual",
+  "line_items": [
+    {
+      "description": "OR anesthesia charge",
+      "quantity": 1,
+      "unit_price": 4200,
+      "total": 4200
+    },
+    {
+      "description": "Private room (per day)",
+      "quantity": 3,
+      "unit_price": 4500,
+      "total": 13500
+    },
+    {
+      "description": "Operating room — major procedure",
+      "quantity": 1,
+      "unit_price": 18500,
+      "total": 18500
+    },
+    {
+      "description": "IV fluid & administration",
+      "quantity": 12,
+      "unit_price": 850,
+      "total": 10200
+    },
+    {
+      "description": "Phantom medication line",
+      "quantity": 10,
+      "unit_price": 2400,
+      "total": 24000
+    },
+    {
+      "description": "Duplicate room charge",
+      "quantity": 1,
+      "unit_price": 4500,
+      "total": 4500
+    },
+    {
+      "description": "Consumables bundle",
+      "quantity": 1,
+      "unit_price": 9800,
+      "total": 9800
+    }
+  ]
+}

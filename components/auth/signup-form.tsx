@@ -16,6 +16,8 @@ import {
 } from "@/components/ui/select"
 import { SIGNUP_COUNTRIES } from "@/lib/signup-countries"
 import { SITE_NAME } from "@/lib/site-config"
+import { setPrototypeSession } from "@/lib/prototype-auth"
+import { isSupabaseConfigured } from "@/lib/supabase/config"
 import { createClient } from "@/lib/supabase/client"
 import { formatAuthError } from "@/lib/supabase/auth-errors"
 
@@ -29,6 +31,9 @@ export default function SignupForm() {
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState<{ type: "ok" | "err"; text: string } | null>(null)
 
+  const supabaseMode = isSupabaseConfigured()
+  const submitDisabled = loading || (supabaseMode && !country)
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     setMessage(null)
@@ -38,31 +43,38 @@ export default function SignupForm() {
     }
     setLoading(true)
     try {
-      const supabase = createClient()
-      const origin = typeof window !== "undefined" ? window.location.origin : ""
-      const { data, error } = await supabase.auth.signUp({
-        email,
-        password,
-        options: {
-          emailRedirectTo: `${origin}/auth/callback?next=/`,
-          data: {
-            full_name: fullName,
-            country,
+      if (supabaseMode) {
+        const supabase = createClient()
+        const origin = typeof window !== "undefined" ? window.location.origin : ""
+        const { data, error } = await supabase.auth.signUp({
+          email,
+          password,
+          options: {
+            emailRedirectTo: `${origin}/auth/callback?next=/dashboard`,
+            data: {
+              full_name: fullName,
+              country,
+            },
           },
-        },
-      })
-      if (error) {
-        setMessage({ type: "err", text: formatAuthError(error) })
-        return
-      }
-      if (data.user && !data.session) {
-        setMessage({
-          type: "ok",
-          text: "Check your email and confirm your account, then log in.",
         })
+        if (error) {
+          setMessage({ type: "err", text: formatAuthError(error) })
+          return
+        }
+        if (data.user && !data.session) {
+          setMessage({
+            type: "ok",
+            text: "Check your email and confirm your account, then log in.",
+          })
+          return
+        }
+        router.push("/dashboard")
+        router.refresh()
         return
       }
-      router.push("/")
+
+      setPrototypeSession({ email, fullName })
+      router.push("/dashboard")
       router.refresh()
     } catch {
       setMessage({ type: "err", text: "Network error. Try again." })
@@ -72,13 +84,18 @@ export default function SignupForm() {
   }
 
   return (
-    <div className="container max-w-md px-4 py-16 md:py-24 mx-auto w-full">
-      <Card className="border border-gray-200 dark:border-gray-800 shadow-sm">
+    <div className="container mx-auto w-full max-w-md px-4 py-16 md:py-24">
+      <p className="mb-6 rounded-sm border border-black/10 bg-neutral-100 px-3 py-2 text-xs text-neutral-600 dark:border-white/10 dark:bg-neutral-900 dark:text-neutral-400">
+        Prototype: {supabaseMode ? "Uses Supabase when configured." : "Account creation is simulated in the browser."}{" "}
+        Next stop: the upload dashboard.
+      </p>
+      <Card className="rounded-sm border border-black/15 shadow-none dark:border-white/15">
         <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl font-medium tracking-tight">Create account</CardTitle>
-          <CardDescription>
-            Country drives rates, letter templates, and payment options. You can add a payment method after email
-            verification.
+          <CardTitle className="text-2xl font-semibold tracking-tight">Create account</CardTitle>
+          <CardDescription className="text-neutral-600 dark:text-neutral-400">
+            {supabaseMode
+              ? "Country drives rates, letter templates, and payment options. You can add a payment method after email verification."
+              : "Enter your details to open the prototype workspace."}
           </CardDescription>
         </CardHeader>
         <form onSubmit={handleSubmit}>
@@ -105,7 +122,7 @@ export default function SignupForm() {
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
                 placeholder="Jane Doe"
-                className="h-11"
+                className="h-11 rounded-sm border-black/20 dark:border-white/20"
               />
             </div>
             <div className="space-y-2">
@@ -119,14 +136,17 @@ export default function SignupForm() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@example.com"
-                className="h-11"
+                className="h-11 rounded-sm border-black/20 dark:border-white/20"
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="country">Country / region</Label>
+              <Label htmlFor="country">
+                Country / region
+                {!supabaseMode && <span className="font-normal text-neutral-500"> (optional)</span>}
+              </Label>
               <Select value={country} onValueChange={setCountry}>
-                <SelectTrigger id="country" className="h-11">
-                  <SelectValue placeholder="Select country" />
+                <SelectTrigger id="country" className="h-11 rounded-sm border-black/20 dark:border-white/20">
+                  <SelectValue placeholder={supabaseMode ? "Select country" : "Optional"} />
                 </SelectTrigger>
                 <SelectContent>
                   {SIGNUP_COUNTRIES.map((c) => (
@@ -149,7 +169,7 @@ export default function SignupForm() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="At least 8 characters"
-                className="h-11"
+                className="h-11 rounded-sm border-black/20 dark:border-white/20"
               />
             </div>
             <div className="space-y-2">
@@ -162,28 +182,32 @@ export default function SignupForm() {
                 required
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
-                className="h-11"
+                className="h-11 rounded-sm border-black/20 dark:border-white/20"
               />
             </div>
-            <p className="text-xs text-muted-foreground">
+            <p className="text-xs text-neutral-500">
               By creating an account you agree to the{" "}
-              <Link href="/terms" className="underline underline-offset-2 hover:text-foreground">
+              <Link href="/terms" className="underline underline-offset-2 hover:text-neutral-900 dark:hover:text-neutral-100">
                 Terms
               </Link>{" "}
               and{" "}
-              <Link href="/privacy" className="underline underline-offset-2 hover:text-foreground">
+              <Link href="/privacy" className="underline underline-offset-2 hover:text-neutral-900 dark:hover:text-neutral-100">
                 Privacy Policy
               </Link>
               . {SITE_NAME} is not a law firm.
             </p>
           </CardContent>
           <CardFooter className="flex flex-col gap-4">
-            <Button type="submit" className="w-full h-11" disabled={loading || !country}>
+            <Button
+              type="submit"
+              className="h-11 w-full rounded-sm bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90"
+              disabled={submitDisabled}
+            >
               {loading ? "Creating account…" : "Create account"}
             </Button>
-            <p className="text-sm text-muted-foreground text-center">
+            <p className="text-center text-sm text-neutral-600 dark:text-neutral-400">
               Already have an account?{" "}
-              <Link href="/login" className="text-primary font-medium hover:underline">
+              <Link href="/login" className="font-medium text-neutral-900 underline underline-offset-4 dark:text-white">
                 Log in
               </Link>
             </p>

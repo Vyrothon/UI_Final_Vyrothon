@@ -1,7 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import MainNavbar from "@/components/main-navbar"
-import Footer from "@/components/footer"
+import { MarketingPageShell } from "@/components/marketing-page-shell"
 import { SITE_NAME_FULL } from "@/lib/site-config"
 
 export const metadata: Metadata = {
@@ -14,11 +13,5 @@ export default function PricingLayout({
 }: {
   children: React.ReactNode
 }) {
-  return (
-    <div className="flex min-h-screen flex-col bg-white">
-      <MainNavbar />
-      <main className="flex-grow">{children}</main>
-      <Footer />
-    </div>
-  )
+  return <MarketingPageShell>{children}</MarketingPageShell>
 }

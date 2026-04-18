@@ -1,10 +1,10 @@
 import type React from "react"
 import type { Metadata } from "next"
+import { MarketingPageShell } from "@/components/marketing-page-shell"
 
 export const metadata: Metadata = {
-  title: "Dispute tracker | ClearClaim AI",
-  description:
-    "Track billing disputes, deadlines, letters sent, and counsel referrals in one workspace.",
+  title: "Tasks | ClearClaim AI",
+  description: "Dispute tracker and task workflow for ClearClaim cases.",
 }
 
 export default function TasksLayout({
@@ -12,5 +12,5 @@ export default function TasksLayout({
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return <MarketingPageShell>{children}</MarketingPageShell>
 }

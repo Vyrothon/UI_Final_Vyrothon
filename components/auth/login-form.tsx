@@ -8,6 +8,8 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { SITE_NAME } from "@/lib/site-config"
+import { setPrototypeSession } from "@/lib/prototype-auth"
+import { isSupabaseConfigured } from "@/lib/supabase/config"
 import { createClient } from "@/lib/supabase/client"
 import { formatAuthError } from "@/lib/supabase/auth-errors"
 
@@ -23,13 +25,21 @@ export default function LoginForm() {
     setLoading(true)
     setMessage(null)
     try {
-      const supabase = createClient()
-      const { error } = await supabase.auth.signInWithPassword({ email, password })
-      if (error) {
-        setMessage({ type: "err", text: formatAuthError(error) })
-        return
+      if (isSupabaseConfigured()) {
+        const supabase = createClient()
+        const { error } = await supabase.auth.signInWithPassword({ email, password })
+        if (error) {
+          setMessage({ type: "err", text: formatAuthError(error) })
+          return
+        }
+      } else {
+        if (password.length < 8) {
+          setMessage({ type: "err", text: "Use at least 8 characters for this prototype sign-in." })
+          return
+        }
+        setPrototypeSession({ email })
       }
-      router.push("/")
+      router.push("/dashboard")
       router.refresh()
     } catch {
       setMessage({ type: "err", text: "Network error. Try again." })
@@ -39,11 +49,15 @@ export default function LoginForm() {
   }
 
   return (
-    <div className="container max-w-md px-4 py-16 md:py-24 mx-auto w-full">
-      <Card className="border border-gray-200 dark:border-gray-800 shadow-sm">
+    <div className="container mx-auto w-full max-w-md px-4 py-16 md:py-24">
+      <p className="mb-6 rounded-sm border border-black/10 bg-neutral-100 px-3 py-2 text-xs text-neutral-600 dark:border-white/10 dark:bg-neutral-900 dark:text-neutral-400">
+        Prototype: {isSupabaseConfigured() ? "Uses Supabase when configured." : "Sign-in is simulated in the browser only."}{" "}
+        You&apos;ll land on the upload dashboard.
+      </p>
+      <Card className="rounded-sm border border-black/15 shadow-none dark:border-white/15">
         <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl font-medium tracking-tight">Log in</CardTitle>
-          <CardDescription>
+          <CardTitle className="text-2xl font-semibold tracking-tight">Log in</CardTitle>
+          <CardDescription className="text-neutral-600 dark:text-neutral-400">
             Access your {SITE_NAME} workspace—audits, dispute letters, and case tracking.
           </CardDescription>
         </CardHeader>
@@ -72,7 +86,7 @@ export default function LoginForm() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@example.com"
-                className="h-11"
+                className="h-11 rounded-sm border-black/20 dark:border-white/20"
               />
             </div>
             <div className="space-y-2">
@@ -80,7 +94,7 @@ export default function LoginForm() {
                 <Label htmlFor="password">Password</Label>
                 <a
                   href="mailto:support@strawberryantler.com"
-                  className="text-xs text-muted-foreground hover:text-foreground underline-offset-4 hover:underline"
+                  className="text-xs text-neutral-500 underline-offset-4 hover:text-neutral-900 hover:underline dark:hover:text-neutral-200"
                 >
                   Need help?
                 </a>
@@ -93,17 +107,21 @@ export default function LoginForm() {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="h-11"
+                className="h-11 rounded-sm border-black/20 dark:border-white/20"
               />
             </div>
           </CardContent>
           <CardFooter className="flex flex-col gap-4">
-            <Button type="submit" className="w-full h-11" disabled={loading}>
+            <Button
+              type="submit"
+              className="h-11 w-full rounded-sm bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90"
+              disabled={loading}
+            >
               {loading ? "Signing in…" : "Sign in"}
             </Button>
-            <p className="text-sm text-muted-foreground text-center">
+            <p className="text-center text-sm text-neutral-600 dark:text-neutral-400">
               No account?{" "}
-              <Link href="/signup" className="text-primary font-medium hover:underline">
+              <Link href="/signup" className="font-medium text-neutral-900 underline underline-offset-4 dark:text-white">
                 Create one
               </Link>
             </p>

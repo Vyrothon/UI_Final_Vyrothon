@@ -5,7 +5,8 @@ import { ArrowLeft } from "lucide-react"
 import PrivacyPolicyTemplate from "@/components/privacy-policy-template"
 import MainNavbar from "@/components/main-navbar"
 import Footer from "@/components/footer"
-import { SITE_NAME_FULL, SITE_URL } from "@/lib/site-config"
+import { SITE_NAME_FULL } from "@/lib/site-config"
+import { SITE_URL } from "@/lib/site-urls"
 
 export const metadata: Metadata = {
   title: `Privacy Policy | ${SITE_NAME_FULL}`,

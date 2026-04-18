@@ -1,10 +1,10 @@
 import type React from "react"
 import type { Metadata } from "next"
+import { MarketingPageShell } from "@/components/marketing-page-shell"
 
 export const metadata: Metadata = {
   title: "Portal assist | ClearClaim AI",
-  description:
-    "Optional guided capture from hospital and insurer portals so PDFs land in ClearClaim without manual hunting.",
+  description: "Assisted capture of portal-hosted medical bills and documents.",
 }
 
 export default function OwenLayout({
@@ -12,5 +12,5 @@ export default function OwenLayout({
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return <MarketingPageShell>{children}</MarketingPageShell>
 }

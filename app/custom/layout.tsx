@@ -1,5 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
+import { MarketingPageShell } from "@/components/marketing-page-shell"
 
 export const metadata: Metadata = {
   title: "Enterprise & custom | ClearClaim AI",
@@ -12,5 +13,5 @@ export default function CustomLayout({
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return <MarketingPageShell>{children}</MarketingPageShell>
 }
