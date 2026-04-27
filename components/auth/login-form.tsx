@@ -1,18 +1,18 @@
 "use client"
 
-import { useState } from "react"
+import { useState, Suspense } from "react"
 import Link from "next/link"
-import { useRouter } from "next/navigation"
+import { useRouter, useSearchParams } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { SITE_NAME } from "@/lib/site-config"
-import { createClient } from "@/lib/supabase/client"
-import { formatAuthError } from "@/lib/supabase/auth-errors"
 
-export default function LoginForm() {
+function LoginFormInner() {
   const router = useRouter()
+  const searchParams = useSearchParams()
+  const nextPath = searchParams.get("next")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [loading, setLoading] = useState(false)
@@ -23,13 +23,22 @@ export default function LoginForm() {
     setLoading(true)
     setMessage(null)
     try {
-      const supabase = createClient()
-      const { error } = await supabase.auth.signInWithPassword({ email, password })
-      if (error) {
-        setMessage({ type: "err", text: formatAuthError(error) })
+      const res = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      })
+      const data = await res.json()
+      if (!res.ok) {
+        const first =
+          typeof data.error === "object" && data.error
+            ? Object.values(data.error).flat().filter(Boolean)[0]
+            : data.error
+        setMessage({ type: "err", text: String(first || "Could not sign in.") })
         return
       }
-      router.push("/")
+      const dest = nextPath?.startsWith("/") ? nextPath : "/dashboard"
+      router.push(dest)
       router.refresh()
     } catch {
       setMessage({ type: "err", text: "Network error. Try again." })
@@ -45,6 +54,9 @@ export default function LoginForm() {
           <CardTitle className="text-2xl font-medium tracking-tight">Log in</CardTitle>
           <CardDescription>
             Access your {SITE_NAME} workspace—audits, dispute letters, and case tracking.
+            <span className="mt-2 block text-amber-700 dark:text-amber-400/90 text-xs font-normal">
+              Demo mode: use any email and password. Sessions are stored in a browser cookie only.
+            </span>
           </CardDescription>
         </CardHeader>
         <form onSubmit={handleSubmit}>
@@ -111,5 +123,19 @@ export default function LoginForm() {
         </form>
       </Card>
     </div>
+  )
+}
+
+export default function LoginForm() {
+  return (
+    <Suspense
+      fallback={
+        <div className="container max-w-md px-4 py-24 mx-auto flex justify-center text-muted-foreground text-sm">
+          Loading…
+        </div>
+      }
+    >
+      <LoginFormInner />
+    </Suspense>
   )
 }

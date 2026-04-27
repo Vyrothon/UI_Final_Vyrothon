@@ -71,6 +71,7 @@ export default function MainNavbar() {
     },
     { label: "Enterprise", href: "/custom", hasDropdown: false },
     { label: "Demo", href: "/demo", hasDropdown: false },
+    { label: "Dashboard", href: "/dashboard/bill-intake", hasDropdown: false },
   ]
 
   const handleScroll = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -245,6 +246,14 @@ export default function MainNavbar() {
           </nav>
 
           <div className="hidden md:flex items-center gap-2">
+            <Button
+              asChild
+              variant="ghost"
+              size="sm"
+              className="text-sm font-medium focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
+            >
+              <Link href="/dashboard/bill-intake">Dashboard</Link>
+            </Button>
             <Button
               asChild
               variant="ghost"
@@ -449,6 +458,24 @@ export default function MainNavbar() {
                         >
                           <Button
                             asChild
+                            variant="secondary"
+                            className="mx-4 w-[calc(100%-2rem)] focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                          >
+                            <Link href="/dashboard/bill-intake" onClick={() => setIsOpen(false)}>
+                              Dashboard
+                            </Link>
+                          </Button>
+                        </motion.div>
+
+                        <motion.div
+                          custom={mainNavItems.reduce((acc, item) => acc + (item.dropdownItems?.length || 1), 0) + 2}
+                          variants={menuItemVariants}
+                          initial="hidden"
+                          animate="visible"
+                          exit="exit"
+                        >
+                          <Button
+                            asChild
                             variant="outline"
                             className="mx-4 w-[calc(100%-2rem)] focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
                           >
@@ -459,7 +486,7 @@ export default function MainNavbar() {
                         </motion.div>
 
                         <motion.div
-                          custom={mainNavItems.reduce((acc, item) => acc + (item.dropdownItems?.length || 1), 0) + 2}
+                          custom={mainNavItems.reduce((acc, item) => acc + (item.dropdownItems?.length || 1), 0) + 3}
                           variants={menuItemVariants}
                           initial="hidden"
                           animate="visible"

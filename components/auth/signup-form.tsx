@@ -16,8 +16,6 @@ import {
 } from "@/components/ui/select"
 import { SIGNUP_COUNTRIES } from "@/lib/signup-countries"
 import { SITE_NAME } from "@/lib/site-config"
-import { createClient } from "@/lib/supabase/client"
-import { formatAuthError } from "@/lib/supabase/auth-errors"
 
 export default function SignupForm() {
   const router = useRouter()
@@ -38,31 +36,21 @@ export default function SignupForm() {
     }
     setLoading(true)
     try {
-      const supabase = createClient()
-      const origin = typeof window !== "undefined" ? window.location.origin : ""
-      const { data, error } = await supabase.auth.signUp({
-        email,
-        password,
-        options: {
-          emailRedirectTo: `${origin}/auth/callback?next=/`,
-          data: {
-            full_name: fullName,
-            country,
-          },
-        },
+      const res = await fetch("/api/auth/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ fullName, email, country, password }),
       })
-      if (error) {
-        setMessage({ type: "err", text: formatAuthError(error) })
+      const data = await res.json()
+      if (!res.ok) {
+        const first =
+          typeof data.error === "object" && data.error
+            ? Object.values(data.error).flat().filter(Boolean)[0]
+            : data.error
+        setMessage({ type: "err", text: String(first || "Could not create account.") })
         return
       }
-      if (data.user && !data.session) {
-        setMessage({
-          type: "ok",
-          text: "Check your email and confirm your account, then log in.",
-        })
-        return
-      }
-      router.push("/")
+      router.push("/dashboard")
       router.refresh()
     } catch {
       setMessage({ type: "err", text: "Network error. Try again." })
@@ -77,8 +65,10 @@ export default function SignupForm() {
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl font-medium tracking-tight">Create account</CardTitle>
           <CardDescription>
-            Country drives rates, letter templates, and payment options. You can add a payment method after email
-            verification.
+            Country drives rates, letter templates, and payment options.
+            <span className="mt-2 block text-amber-700 dark:text-amber-400/90 text-xs font-normal">
+              Demo mode: any password works; no email verification.
+            </span>
           </CardDescription>
         </CardHeader>
         <form onSubmit={handleSubmit}>
@@ -145,10 +135,10 @@ export default function SignupForm() {
                 type="password"
                 autoComplete="new-password"
                 required
-                minLength={8}
+                minLength={1}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="At least 8 characters"
+                placeholder="Any value in demo"
                 className="h-11"
               />
             </div>
