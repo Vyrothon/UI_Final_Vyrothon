@@ -200,4 +200,4 @@ We make money from **subscriptions**, **success fees on recovery**, and **referr
 - **Tone:** calm, institutional trust — think “Stripe for bill clarity,” not “lawsuit lottery.”  
 - **Palette:** deep teal or navy + warm accent; plenty of whitespace.  
 - **Icons:** document scan, shield, scale (subtle), hospital → user arrow.  
-- **Stock avoid:** fake “100% guaranteed refund” language; keep disclaimers visible in appendix if not on every slide.
+- **Stock avoid:** fake “100% guaranteed refund” language; keep disclaimers visible in appendix if not on every slide
